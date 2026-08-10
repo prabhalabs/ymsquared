@@ -372,10 +372,5 @@ function scrollToSection(event: MouseEvent) {
         </p>
       </RevealSection>
     </div>
-
-    <RevealSection class="mx-auto mt-10 max-w-3xl border-t border-border pt-6 text-xs text-slate-500">
-      This is the canonical privacy policy for the YM² Android app, published here for Play
-      Console review.
-    </RevealSection>
   </div>
 </template>
