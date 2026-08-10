@@ -13,7 +13,7 @@ const isMenuOpen = ref(false)
 
 const navLinks = [
   { label: 'Features', to: { path: '/', hash: '#features' } },
-  { label: 'Why MFlow', to: { path: '/', hash: '#why-mflow' } },
+  { label: 'Why YM²', to: { path: '/', hash: '#why-ym2' } },
   { label: 'Privacy', to: '/privacy' },
   { label: 'Support', to: '/support' },
 ]
@@ -30,8 +30,8 @@ watch(
   <header class="fixed inset-x-0 top-0 z-50">
     <div class="mx-auto max-w-7xl px-4 pt-4 sm:px-6 lg:px-8">
       <nav class="glass flex items-center justify-between rounded-2xl px-4 py-3 sm:px-6" aria-label="Primary">
-        <router-link to="/" class="shrink-0" aria-label="MFlow home">
-          <Logo />
+        <router-link to="/" class="shrink-0" aria-label="YM² home — Your Money Matters">
+          <Logo showTagline />
         </router-link>
 
         <div class="hidden items-center gap-1 md:flex">

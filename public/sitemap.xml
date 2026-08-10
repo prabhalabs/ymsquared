@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://mflowapp.github.io/mflow/</loc>
+    <loc>https://prabhalabs.github.io/ymsquared/</loc>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://mflowapp.github.io/mflow/privacy</loc>
+    <loc>https://prabhalabs.github.io/ymsquared/privacy</loc>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://mflowapp.github.io/mflow/support</loc>
+    <loc>https://prabhalabs.github.io/ymsquared/support</loc>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://mflowapp.github.io/mflow/terms</loc>
+    <loc>https://prabhalabs.github.io/ymsquared/terms</loc>
     <priority>0.6</priority>
   </url>
 </urlset>

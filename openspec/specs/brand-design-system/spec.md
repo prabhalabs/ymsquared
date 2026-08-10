@@ -4,13 +4,13 @@
 
 Defines the visual language — color tokens, typography, dark theme, motion
 primitives, and brand asset usage — that every page and component in the
-MFlow site must conform to, so the site reads as a single premium,
+YM² site must conform to, so the site reads as a single premium,
 consistent product rather than a set of disconnected pages.
 
 ## Requirements
 
 ### Requirement: Color tokens
-The system SHALL expose the MFlow palette as reusable design tokens: primary
+The system SHALL expose the YM² palette as reusable design tokens: primary
 `#2563EB`, secondary `#14B8A6`, accent `#22C55E`, background `#020617`, card
 surface `#0F172A`, border `#1E293B`, and white text — and every page SHALL
 use only these tokens (or documented tints/shades of them) for themed color
@@ -43,12 +43,12 @@ headings/display text, loaded so that text remains visible during font load
   is rendered in the Inter font family
 
 ### Requirement: Brand asset usage
-The system SHALL use the official MFlow brand assets for their designated
+The system SHALL use the official YM² brand assets for their designated
 purposes: the light-background logo variant on any light-colored surface,
 the dark-background logo variant on any dark-colored surface (including the
-default dark navbar/footer), and the supplied icon artwork as the site
-favicon, the PWA/app icon, and the source for the social share (Open Graph)
-image.
+default dark navbar/footer), and the supplied icon artwork (a cropped,
+square derivation of the YM² wordmark) as the site favicon, the PWA/app
+icon, and the source for the social share (Open Graph) image.
 
 #### Scenario: Logo contrast on dark navbar
 - **WHEN** the navbar (dark surface) is rendered
@@ -58,7 +58,8 @@ image.
 #### Scenario: Favicon and share image are branded
 - **WHEN** the site is loaded in a browser tab or shared as a link
 - **THEN** the browser tab icon and the link preview image both derive from
-  the official MFlow icon artwork, not a generic placeholder
+  the official YM² icon artwork, not a generic placeholder or the retired
+  MFlow mark
 
 ### Requirement: Download CTA icon
 Every "Download on Google Play" call-to-action button SHALL display a Play

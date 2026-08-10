@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import Logo from '@/components/Logo.vue'
 
-const GITHUB_URL = 'https://github.com/mflowapp/mflow'
+const GITHUB_URL = 'https://github.com/prabhalabs/ymsquared'
 const year = new Date().getFullYear()
 
 const linkGroups = [
@@ -9,7 +9,7 @@ const linkGroups = [
     title: 'Product',
     links: [
       { label: 'Features', to: { path: '/', hash: '#features' } },
-      { label: 'Why MFlow', to: { path: '/', hash: '#why-mflow' } },
+      { label: 'Why YM²', to: { path: '/', hash: '#why-ym2' } },
     ],
   },
   {
@@ -34,7 +34,7 @@ const linkGroups = [
     <div class="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
       <div class="grid grid-cols-2 gap-10 sm:grid-cols-4">
         <div class="col-span-2">
-          <Logo />
+          <Logo showTagline />
           <p class="mt-4 max-w-xs text-sm leading-relaxed text-slate-400">
             Private, offline-first, AI-assisted personal finance for Android.
             Your data stays on your device.
@@ -67,7 +67,7 @@ const linkGroups = [
       </div>
 
       <div class="mt-12 border-t border-border pt-8 text-sm text-slate-500">
-        <p>&copy; {{ year }} MFlow. All rights reserved.</p>
+        <p>&copy; {{ year }} YM Squared. All rights reserved.</p>
       </div>
     </div>
   </footer>

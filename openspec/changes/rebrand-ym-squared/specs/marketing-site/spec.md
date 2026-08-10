@@ -1,12 +1,4 @@
-# marketing-site Specification
-
-## Purpose
-
-Defines the routed pages, navigation, and content the YM² marketing site
-must present to visitors, so the site explains the product, satisfies Play
-Store legal-page requirements, and gives users a support path.
-
-## Requirements
+## MODIFIED Requirements
 
 ### Requirement: Landing page hero
 The system SHALL render a landing page at `/` whose hero section displays the
@@ -19,17 +11,6 @@ value proposition, and a "Download on Google Play" call-to-action.
 - **THEN** the hero headline "YM²", the tagline, the subtitle copy, and the
   "Download on Google Play" button are all visible above the fold without
   scrolling on a standard desktop viewport
-
-### Requirement: Feature grid
-The landing page SHALL present a grid of feature cards covering: Automatic
-SMS Detection, AI Assisted Categorization, Privacy First, Offline First,
-Budgets, Reports, Analytics, Gmail Import, Backup & Restore, Recurring
-Expenses, Merchant Learning, and Approval Queue.
-
-#### Scenario: All features are enumerated
-- **WHEN** a visitor scrolls to the features section
-- **THEN** all 12 named features are each represented by a distinct card
-  with an icon, a title, and a one- or two-sentence description
 
 ### Requirement: "Why YM²" section
 The landing page SHALL present reasons to trust the product: Offline First,
@@ -73,25 +54,24 @@ navigation linking every section on the page; information collected (SMS
 permission, Gmail permission, manual transactions), presented both as a
 summary table (data / why it's read / where it goes) and in fuller prose;
 AI processing (including what happens to a transaction that isn't
-approved); data sharing; security; backups; data deletion; children's
-privacy; changes to the policy; the Google API Limited Use Statement; and
-a highlighted contact box with a mailto link to the support address. It
-SHALL explicitly state that SMS processing happens entirely on-device, SMS
-is never uploaded, Gmail access is optional, and that there are no
-advertisements, no analytics, no tracking, and no selling of user data,
-and that auto-approved transactions remain user-editable. The Manual
-Transactions content SHALL confirm that manual entry is supported via a
-"+" button on both the Dashboard and the Transactions section, and that
-this is the fallback for banks that don't send transaction SMS/email or
-for users who decline SMS/Gmail permission. The AI Processing content
-SHALL explain what happens to a transaction that isn't approved: it is
-auto-approved after a user-configured time period if auto-approve is
-enabled, and otherwise sits in the Pending Transactions list until the
-user reviews it, with nothing applied to budgets or reports before
-approval. The page SHALL display a "Last updated" date. Each policy
-section SHALL reveal independently as the visitor scrolls to it, so the
-page is never blank on initial load while content further down has not
-yet entered the viewport.
+approved); data sharing; security; backups and exports; data deletion;
+children's privacy; changes to the policy; the Google API Limited Use
+Statement; and a highlighted contact box with a mailto link to the support
+address. It SHALL explicitly state that SMS processing happens entirely
+on-device, SMS is never uploaded, Gmail access is optional, and that there
+are no advertisements, no analytics, no tracking, and no selling of user
+data, and that auto-approved transactions remain user-editable. The Manual
+Transactions content SHALL confirm that manual entry is supported via a "+"
+button on both the Dashboard and the Transactions section, and that this is
+the fallback for banks that don't send transaction SMS/email or for users
+who decline SMS/Gmail permission. The AI Processing content SHALL explain
+what happens to a transaction that isn't approved: it is auto-approved
+after a user-configured time period if auto-approve is enabled, and
+otherwise sits in the Pending Transactions list until the user reviews it,
+with nothing applied to budgets or reports before approval. The page SHALL
+display a "Last updated" date. Each policy section SHALL reveal
+independently as the visitor scrolls to it, so the page is never blank on
+initial load while content further down has not yet entered the viewport.
 
 #### Scenario: Visitor reads the privacy policy
 - **WHEN** a visitor navigates to `/privacy`
@@ -149,15 +129,7 @@ limitation of liability, branded as YM².
 - **WHEN** a visitor navigates to `/terms`
 - **THEN** all five required sections are present in the rendered content
 
-### Requirement: 404 fallback
-The system SHALL render a dedicated not-found page for any URL that does not
-match `/`, `/privacy`, `/support`, or `/terms`, offering a link back to the
-homepage.
-
-#### Scenario: Visitor hits an unknown URL
-- **WHEN** a visitor navigates to an undefined path such as `/foo`
-- **THEN** the 404 page is rendered instead of a blank page or router error,
-  and a link back to `/` is present
+## ADDED Requirements
 
 ### Requirement: Support contact address
 Every page offering a support contact (Privacy, Support, Terms) SHALL use

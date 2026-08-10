@@ -1,9 +1,9 @@
 {
-  "name": "mflow-web",
+  "name": "ymsquared-web",
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "Marketing website for the MFlow Android app.",
+  "description": "Marketing website for the YM² (Your Money Matters) Android app.",
   "scripts": {
     "dev": "vite",
     "build": "run-p type-check \"build-only {@}\" --",

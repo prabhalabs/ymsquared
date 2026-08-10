@@ -32,7 +32,7 @@ jobs:
 
       - name: Build
         env:
-          VITE_BASE_PATH: /mflow/
+          VITE_BASE_PATH: /ymsquared/
         run: npm run build
 
       - name: Upload build artifact

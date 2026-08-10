@@ -6,36 +6,35 @@ import SectionHeading from '@/components/SectionHeading.vue'
 import RevealSection from '@/components/RevealSection.vue'
 import AppButton from '@/components/AppButton.vue'
 import type { FaqItem } from '@/types/feature'
+import { SUPPORT_EMAIL } from '@/constants/brand'
 
 useSeoMeta({
   title: 'Support',
   description:
-    'Answers to common MFlow questions: permissions, backup and restore, SMS detection, and Gmail sync — plus how to reach us directly.',
+    'Answers to common YM² questions: permissions, backup and restore, SMS detection, and Gmail sync — plus how to reach us directly.',
   path: '/support',
 })
 
-const contactEmail = 'support.mflow@gmail.com'
-
 const faqs: FaqItem[] = [
   {
-    question: 'Why does MFlow ask for SMS permission?',
+    question: 'Why does YM² ask for SMS permission?',
     answer:
-      'MFlow reads transaction SMS from your bank and card issuers to automatically detect and log transactions. This parsing happens entirely on your device — raw SMS content is never uploaded anywhere.',
+      'YM² reads transaction SMS from your bank and card issuers to automatically detect and log transactions. This parsing happens entirely on your device — raw SMS content is never uploaded anywhere.',
   },
   {
     question: 'What happens if I deny a permission?',
     answer:
-      'MFlow degrades gracefully. Without SMS permission you can still track everything manually. Without Gmail access, Gmail import simply stays off — every permission is optional except what a specific feature you choose to use requires.',
+      'YM² degrades gracefully. Without SMS permission you can still track everything manually. Without Gmail access, Gmail import simply stays off — every permission is optional except what a specific feature you choose to use requires.',
   },
   {
-    question: 'Does MFlow support manual transactions?',
+    question: 'Does YM² support manual transactions?',
     answer:
-      'Yes. A "+" button is available on both the Dashboard and the Transactions section to create a manual transaction at any time. This helps if a bank doesn\'t send a transaction SMS or email, or if you\'d rather not grant SMS or Gmail permission at all — MFlow works fully on manual entry alone.',
+      'Yes. A "+" button is available on both the Dashboard and the Transactions section to create a manual transaction at any time. This helps if a bank doesn\'t send a transaction SMS or email, or if you\'d rather not grant SMS or Gmail permission at all — YM² works fully on manual entry alone.',
   },
   {
     question: 'How do I back up my data?',
     answer:
-      'Open Settings → Backup & Restore → Create Backup. MFlow generates an encrypted backup file that you save wherever you like (device storage, an SD card, or a cloud drive of your choice) — MFlow itself never uploads it automatically.',
+      'Open Settings → Backup & Restore → Create Backup. YM² generates an encrypted backup file that you save wherever you like (device storage, an SD card, or a cloud drive of your choice) — YM² itself never uploads it automatically.',
   },
   {
     question: 'How do I restore from a backup?',
@@ -45,7 +44,7 @@ const faqs: FaqItem[] = [
   {
     question: 'How does automatic SMS detection work?',
     answer:
-      'MFlow watches for incoming SMS from recognized bank and card-issuer sender IDs, parses the amount, merchant, and account on-device, and creates a categorized transaction in your Approval Queue — which you can review and edit at any time.',
+      'YM² watches for incoming SMS from recognized bank and card-issuer sender IDs, parses the amount, merchant, and account on-device, and creates a categorized transaction in your Approval Queue — which you can review and edit at any time.',
   },
   {
     question: "What happens if I don't approve a transaction?",
@@ -55,7 +54,7 @@ const faqs: FaqItem[] = [
   {
     question: 'How does Gmail sync work?',
     answer:
-      'If enabled, MFlow periodically checks for transaction-related emails (like payment receipts) and extracts transaction details from them, the same way it does with SMS. Gmail sync is entirely optional and can be disabled at any time in Settings.',
+      'If enabled, YM² periodically checks for transaction-related emails (like payment receipts) and extracts transaction details from them, the same way it does with SMS. Gmail sync is entirely optional and can be disabled at any time in Settings.',
   },
 ]
 
@@ -101,7 +100,7 @@ function toggle(index: number) {
       <h2 class="mt-4 font-display text-xl font-bold text-white">Still need help?</h2>
       <p class="mt-2 text-slate-400">Reach out and a real person will get back to you.</p>
       <div class="mt-6 flex justify-center">
-        <AppButton as="a" :href="`mailto:${contactEmail}`">{{ contactEmail }}</AppButton>
+        <AppButton as="a" :href="`mailto:${SUPPORT_EMAIL}`">{{ SUPPORT_EMAIL }}</AppButton>
       </div>
     </RevealSection>
   </div>

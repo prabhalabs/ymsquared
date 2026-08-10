@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://mflowapp.github.io/mflow/sitemap.xml
+Sitemap: https://prabhalabs.github.io/ymsquared/sitemap.xml

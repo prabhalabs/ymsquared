@@ -11,7 +11,8 @@ performance and SEO characteristics.
 ### Requirement: GitHub Pages-compatible build
 The system SHALL produce a static build whose asset URLs resolve correctly
 when the site is served from a GitHub Pages project path (a non-root base
-path), via a configurable Vite `base` setting.
+path), via a configurable Vite `base` setting, currently `/ymsquared/` to
+match the `prabhalabs/ymsquared` repository.
 
 #### Scenario: Built assets resolve under a subpath
 - **WHEN** the site is built with the GitHub Pages project base path
@@ -28,7 +29,7 @@ compatible with GitHub Pages' static hosting model).
 #### Scenario: Hard refresh on a deep route
 - **WHEN** a visitor directly requests `/privacy` on the deployed GitHub
   Pages site (not via in-app navigation)
-- **THEN** the MFlow Privacy Policy page is displayed rather than GitHub's
+- **THEN** the YM² Privacy Policy page is displayed rather than GitHub's
   generic 404 page
 
 ### Requirement: Automated deployment

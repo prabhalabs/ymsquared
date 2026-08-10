@@ -1,11 +1,13 @@
+import { BRAND_NAME, BRAND_TAGLINE } from '@/constants/brand'
+
 export interface SeoMetaOptions {
   title: string
   description: string
   path?: string
 }
 
-const SITE_NAME = 'MFlow'
-const SITE_URL = 'https://mflowapp.github.io/mflow'
+const SITE_NAME = BRAND_NAME
+const SITE_URL = 'https://prabhalabs.github.io/ymsquared'
 const OG_IMAGE = `${SITE_URL}/og-image.png`
 
 function upsertMeta(attr: 'name' | 'property', key: string, content: string) {
@@ -33,7 +35,7 @@ function upsertLink(rel: string, href: string) {
  * page in <script setup>; no reactivity needed since routes fully remount.
  */
 export function useSeoMeta({ title, description, path = '/' }: SeoMetaOptions): void {
-  const fullTitle = path === '/' ? title : `${title} — ${SITE_NAME}`
+  const fullTitle = path === '/' ? title : `${title} — ${SITE_NAME} · ${BRAND_TAGLINE}`
   const canonical = `${SITE_URL}${path === '/' ? '/' : path}`
 
   document.title = fullTitle

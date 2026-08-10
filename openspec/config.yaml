@@ -3,21 +3,25 @@ schema: spec-driven
 # Project context (optional)
 # This is shown to AI when creating artifacts.
 context: |
-  Project: MFlow marketing website (mflow-web) - a static marketing site for the
-  MFlow Android app, deployed to GitHub Pages.
+  Project: YM² marketing website (ymsquared-web) - a static marketing site
+  for the YM² (Your Money Matters) Android app, deployed to GitHub Pages
+  from https://github.com/prabhalabs/ymsquared.
 
   Tech stack: Vue 3 (Composition API) + TypeScript (strict) + Vite + Tailwind CSS
   + Vue Router + Heroicons + @lucide/vue. No Bootstrap/Vuetify/Nuxt/Pinia.
 
-  Brand: "MFlow" - tagline "Track. Budget. Prosper." - private, offline-first,
-  AI-assisted personal finance manager for Android that reads SMS/Gmail/manual
-  entries entirely on-device. No ads, no analytics, no tracking, no selling data.
+  Brand: "YM²" (YM SQUARED, full form "Your Money Matters") - tagline
+  "Track. Budget. Prosper." - private, offline-first, AI-assisted personal
+  finance manager for Android that reads SMS/Gmail/manual entries entirely
+  on-device. No ads, no analytics, no tracking, no selling data. Rebranded
+  from "MFlow" in openspec/changes/rebrand-ym-squared/.
 
-  Brand assets already on disk (source of truth, to be copied into public/ and
-  src/assets/):
-    C:\Users\bhanu\Downloads\logo-light.png -> app logo for use on dark backgrounds
-    C:\Users\bhanu\Downloads\logo-dark.png  -> app logo for use on light backgrounds
-    C:\Users\bhanu\Downloads\icon.png       -> favicon / app icon / og-image source
+  Brand assets: source of truth is `src/assets/brand/icon.png` (see
+  `scripts/generate-brand-assets.mjs` to regenerate every derived file from
+  it). Per this repo's established naming convention (see README.md's
+  "Brand assets" section): `logo-light.png` is the variant used on dark
+  surfaces (navbar/footer), `logo-dark.png` is the variant used on light
+  surfaces (e.g. the README).
 
   Color palette: primary #2563EB, secondary #14B8A6, accent #22C55E,
   background #020617, card #0F172A, border #1E293B, text white. Dark theme by
@@ -25,7 +29,7 @@ context: |
 
   Pages required: / (landing), /privacy, /support, /terms, /404 (catch-all).
   Landing page needs: sticky navbar, hero w/ animated gradient + phone mockup +
-  floating cards, feature grid (11 features), "Why MFlow" grid (7 reasons),
+  floating cards, feature grid (12 features), "Why YM²" grid (8 reasons),
   footer. Motion: scroll fade-ins, floating cards, gradient blobs, hover/ripple,
   glassmorphism, page transitions - all via CSS/Vue transitions, no animation
   libraries.

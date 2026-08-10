@@ -32,11 +32,12 @@ import FeatureCard from '@/components/FeatureCard.vue'
 import WhyCard from '@/components/WhyCard.vue'
 import SectionHeading from '@/components/SectionHeading.vue'
 import RevealSection from '@/components/RevealSection.vue'
+import { BRAND_TAGLINE } from '@/constants/brand'
 
 useSeoMeta({
-  title: 'MFlow — Track. Budget. Prosper.',
+  title: 'YM² — Your Money Matters',
   description:
-    'MFlow is a private, offline-first, AI-assisted personal finance manager for Android. Automatically organize your finances from SMS, Gmail, and manual entries — your data never leaves your device.',
+    'YM² (Your Money Matters) is a private, offline-first, AI-assisted personal finance manager for Android. Automatically organize your finances from SMS, Gmail, and manual entries — your data never leaves your device.',
   path: '/',
 })
 
@@ -68,7 +69,7 @@ const features: Feature[] = [
   {
     icon: WifiOff,
     title: 'Offline First',
-    description: 'Track and budget with zero internet connection — MFlow works fully offline.',
+    description: 'Track and budget with zero internet connection — YM² works fully offline.',
   },
   {
     icon: PiggyBank,
@@ -103,7 +104,7 @@ const features: Feature[] = [
   {
     icon: Store,
     title: 'Merchant Learning',
-    description: 'MFlow remembers how you categorize each merchant and applies it next time.',
+    description: 'YM² remembers how you categorize each merchant and applies it next time.',
   },
   {
     icon: ListChecks,
@@ -126,7 +127,7 @@ const whyReasons: WhyReason[] = [
   {
     icon: Ban,
     title: 'No Ads',
-    description: 'A finance app has no business showing you advertisements. MFlow never will.',
+    description: 'A finance app has no business showing you advertisements. YM² never will.',
   },
   {
     icon: EyeOff,
@@ -136,7 +137,7 @@ const whyReasons: WhyReason[] = [
   {
     icon: Brain,
     title: 'AI Learning',
-    description: 'Categorization improves the more you use MFlow — learning from your corrections.',
+    description: 'Categorization improves the more you use YM² — learning from your corrections.',
   },
   {
     icon: Landmark,
@@ -170,9 +171,12 @@ const whyReasons: WhyReason[] = [
             Private &middot; Offline-First &middot; AI-Assisted
           </p>
           <h1 class="mt-4 font-display text-5xl font-extrabold tracking-tight text-white sm:text-6xl">
-            MFlow
+            YM²
           </h1>
-          <p class="mt-2 font-display text-2xl font-bold text-white sm:text-3xl">
+          <p class="mt-2 font-display text-xl font-bold text-secondary sm:text-2xl">
+            {{ BRAND_TAGLINE }}
+          </p>
+          <p class="mt-1 font-display text-2xl font-bold text-white sm:text-3xl">
             Track. Budget. Prosper.
           </p>
           <p class="mt-6 max-w-lg text-lg leading-relaxed text-slate-400">
@@ -217,7 +221,7 @@ const whyReasons: WhyReason[] = [
         <SectionHeading
           eyebrow="Everything, automated"
           title="One app for every part of your money"
-          subtitle="From the moment a transaction happens to the report you read at month-end, MFlow handles it."
+          subtitle="From the moment a transaction happens to the report you read at month-end, YM² handles it."
         />
       </RevealSection>
 
@@ -228,11 +232,11 @@ const whyReasons: WhyReason[] = [
       </div>
     </section>
 
-    <!-- Why MFlow -->
-    <section id="why-mflow" class="scroll-mt-28 border-t border-border bg-card/30 px-4 py-24 sm:px-6 lg:px-8">
+    <!-- Why YM² -->
+    <section id="why-ym2" class="scroll-mt-28 border-t border-border bg-card/30 px-4 py-24 sm:px-6 lg:px-8">
       <RevealSection>
         <SectionHeading
-          eyebrow="Why MFlow"
+          eyebrow="Why YM²"
           title="Built to be trusted with your money"
           subtitle="No shortcuts on privacy — even if that means fewer features than a cloud-first competitor."
         />
@@ -256,7 +260,7 @@ const whyReasons: WhyReason[] = [
           Take control of your money, privately.
         </h2>
         <p class="relative mx-auto mt-4 max-w-xl text-slate-400">
-          Download MFlow and get your finances organized in minutes — no account required to start.
+          Download YM² and get your finances organized in minutes — no account required to start.
         </p>
         <div class="relative mt-8 flex justify-center">
           <AppButton as="a" :href="PLAY_STORE_URL" target="_blank" size="lg">
