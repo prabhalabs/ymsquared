@@ -1,40 +1,66 @@
 // One-off script that derives every YM² brand asset from the source
 // reference artwork. Re-run after replacing the source PNG if the mark
-// changes; see openspec/changes/rebrand-ym-squared/design.md for how the
-// crop/flatten choices below were made.
+// changes; see openspec/changes/rebrand-ym-squared/design.md for the
+// history behind these choices.
 import { mkdir, writeFile, unlink } from 'node:fs/promises';
 import path from 'node:path';
 import sharp from 'sharp';
 import pngToIco from 'png-to-ico';
 
-const SOURCE = String.raw`C:\Users\bhanu\Downloads\ChatGPT Image Aug 10, 2026, 02_09_08 AM.png`;
+// Soft-glow wordmark artwork, genuinely transparent (RGBA) outside the
+// mark itself — the single source for every derived asset.
+const SOURCE = String.raw`C:\Users\bhanu\Downloads\TRANSPARENT.png`;
+
 const ROOT = path.resolve(import.meta.dirname, '..');
 const BLACK = { r: 0, g: 0, b: 0, alpha: 1 };
+const TRANSPARENT = { r: 0, g: 0, b: 0, alpha: 0 };
 
 async function main() {
   await mkdir(path.join(ROOT, 'src/assets/brand'), { recursive: true });
   await mkdir(path.join(ROOT, 'public/brand'), { recursive: true });
 
-  // The source PNG has an alpha channel — what looks like a black
-  // background in a viewer is actually transparency, not an opaque
-  // fill. Flatten it onto true black so every opaque-background
-  // derivative (icon, favicon, dark wordmark, OG image) renders
-  // correctly instead of leaving transparent pixels that some viewers
-  // render as white.
-  const opaque = sharp(SOURCE).flatten({ background: BLACK });
-  const opaqueBuffer = await opaque.png().toBuffer();
+  // Crop tight to the visible glow (sharp's trim, alpha-based) then add
+  // an EQUAL amount of padding back on all four sides — a single,
+  // simple operation that guarantees symmetric breathing room around
+  // the mark, instead of the letterbox-style crops used previously
+  // (which only padded top/bottom, unevenly, to force a square).
+  const trimmed = await sharp(SOURCE).trim({ threshold: 10 }).png().toBuffer();
+  const PAD = 120;
+  const padded = sharp(trimmed).extend({
+    top: PAD,
+    bottom: PAD,
+    left: PAD,
+    right: PAD,
+    background: TRANSPARENT,
+  });
+  const paddedBuffer = await padded.png().toBuffer();
 
-  // Square icon mark: the source (1536x1024) is wider than it is tall,
-  // and its "YM²" mark spans nearly the full width, so any hard crop to
-  // a 1024x1024 square clips the left "Y" tail and/or the right "2".
-  // Letterbox instead — scale the whole mark down to fit within a
-  // 1024x1024 square (contain), padded with black top/bottom, so
-  // nothing is cut off.
+  // On-page logo mark (navbar/footer/masthead): kept transparent so it
+  // sits directly on the site's dark surfaces with no visible edge/box.
+  await sharp(paddedBuffer).png().toFile(
+    path.join(ROOT, 'src/assets/brand/icon-wide.png'),
+  );
+  // Pre-resized copy for actual on-page use — the mark never renders
+  // taller than ~52px, so shipping the full-resolution master to the
+  // browser would be far more image data than ever gets displayed.
+  await sharp(paddedBuffer).resize(200).png().toFile(
+    path.join(ROOT, 'src/assets/brand/icon-wide-200.png'),
+  );
+
+  // Everything below needs an opaque background (favicons/OG cards can
+  // land on an arbitrary page background, so transparency isn't safe
+  // there) — flatten the same equally-padded crop onto black.
+  const opaqueBuffer = await sharp(paddedBuffer)
+    .flatten({ background: BLACK })
+    .png()
+    .toBuffer();
+
+  // Square favicon/app-icon family: letterbox (contain-fit) the padded
+  // mark into a square canvas.
   const iconSquare = sharp(opaqueBuffer).resize(1024, 1024, {
     fit: 'contain',
     background: BLACK,
   });
-
   await iconSquare.clone().png().toFile(
     path.join(ROOT, 'src/assets/brand/icon.png'),
   );
@@ -43,8 +69,6 @@ async function main() {
     .resize(128, 128)
     .png()
     .toFile(path.join(ROOT, 'src/assets/brand/icon-128.png'));
-
-  // public/ favicon-family derivatives.
   await iconSquare
     .clone()
     .resize(512, 512)
@@ -62,9 +86,7 @@ async function main() {
   await writeFile(path.join(ROOT, 'public/favicon.ico'), icoBuffer);
   await unlink(icoSource);
 
-  // OG / social share image: full landscape source, standard 1200x630
-  // card, letterboxed on black (OG cards are wide — the full lockup
-  // reads better here than the square crop).
+  // OG / social share image: 1200x630 card, letterboxed on black.
   await sharp(opaqueBuffer)
     .resize(1200, 630, { fit: 'contain', background: BLACK })
     .png()
@@ -76,11 +98,8 @@ async function main() {
   // surfaces (e.g. the navbar), and `logo-dark.png` is the variant used
   // ON LIGHT surfaces (e.g. this README on GitHub's white background) —
   // the name describes the surface's own contrast partner, not the
-  // wordmark's literal ink color. `Logo.vue`'s `variant` prop follows
-  // the same convention ('light' => shown on dark backgrounds).
+  // wordmark's literal ink color.
 
-  // logo-light.png: flattened (opaque black) full landscape source —
-  // blends into the site's near-black surfaces (navbar/footer).
   await sharp(opaqueBuffer).png().toFile(
     path.join(ROOT, 'src/assets/brand/logo-light.png'),
   );
@@ -88,13 +107,12 @@ async function main() {
     path.join(ROOT, 'public/brand/logo-light.png'),
   );
 
-  // logo-dark.png: composite the ORIGINAL (alpha-preserving, not
-  // flattened) artwork onto a white rounded card, so it reads cleanly
-  // on light surfaces such as this README.
-  const { width, height } = await sharp(SOURCE).metadata();
-  const pad = 96;
-  const cardW = width + pad * 2;
-  const cardH = height + pad * 2;
+  // logo-dark.png: composite the padded (still-transparent) mark onto a
+  // white rounded card, so it reads cleanly on light surfaces.
+  const { width, height } = await sharp(paddedBuffer).metadata();
+  const cardPad = 80;
+  const cardW = width + cardPad * 2;
+  const cardH = height + cardPad * 2;
   const radius = 48;
   const roundedCard = Buffer.from(
     `<svg width="${cardW}" height="${cardH}">
@@ -102,7 +120,7 @@ async function main() {
     </svg>`,
   );
   await sharp(roundedCard)
-    .composite([{ input: SOURCE, left: pad, top: pad }])
+    .composite([{ input: paddedBuffer, left: cardPad, top: cardPad }])
     .png()
     .toFile(path.join(ROOT, 'src/assets/brand/logo-dark.png'));
   await sharp(path.join(ROOT, 'src/assets/brand/logo-dark.png'))

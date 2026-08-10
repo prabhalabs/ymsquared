@@ -34,7 +34,7 @@ const linkGroups = [
     <div class="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
       <div class="grid grid-cols-2 gap-10 sm:grid-cols-4">
         <div class="col-span-2">
-          <Logo showTagline />
+          <Logo :showWordmark="false" showTagline />
           <p class="mt-4 max-w-xs text-sm leading-relaxed text-slate-400">
             Private, offline-first, AI-assisted personal finance for Android.
             Your data stays on your device.

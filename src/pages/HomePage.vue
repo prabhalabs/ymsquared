@@ -177,7 +177,7 @@ const whyReasons: WhyReason[] = [
             {{ BRAND_TAGLINE }}
           </p>
           <p class="mt-1 font-display text-2xl font-bold text-white sm:text-3xl">
-            Track. Budget. Prosper.
+            Track. Understand. Grow.
           </p>
           <p class="mt-6 max-w-lg text-lg leading-relaxed text-slate-400">
             Your private AI-powered money manager. Automatically organize your finances from SMS,

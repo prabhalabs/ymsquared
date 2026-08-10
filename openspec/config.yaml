@@ -11,7 +11,7 @@ context: |
   + Vue Router + Heroicons + @lucide/vue. No Bootstrap/Vuetify/Nuxt/Pinia.
 
   Brand: "YM²" (YM SQUARED, full form "Your Money Matters") - tagline
-  "Track. Budget. Prosper." - private, offline-first, AI-assisted personal
+  "Track. Understand. Grow." - private, offline-first, AI-assisted personal
   finance manager for Android that reads SMS/Gmail/manual entries entirely
   on-device. No ads, no analytics, no tracking, no selling data. Rebranded
   from "MFlow" in openspec/changes/rebrand-ym-squared/.

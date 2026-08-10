@@ -31,7 +31,7 @@ watch(
     <div class="mx-auto max-w-7xl px-4 pt-4 sm:px-6 lg:px-8">
       <nav class="glass flex items-center justify-between rounded-2xl px-4 py-3 sm:px-6" aria-label="Primary">
         <router-link to="/" class="shrink-0" aria-label="YM² home — Your Money Matters">
-          <Logo showTagline />
+          <Logo :showWordmark="false" showTagline />
         </router-link>
 
         <div class="hidden items-center gap-1 md:flex">

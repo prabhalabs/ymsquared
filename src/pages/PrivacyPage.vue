@@ -2,7 +2,6 @@
 import { useSeoMeta } from '@/composables/useSeoMeta'
 import { scrollToElement } from '@/composables/useSmoothScroll'
 import RevealSection from '@/components/RevealSection.vue'
-import Logo from '@/components/Logo.vue'
 import { SUPPORT_EMAIL } from '@/constants/brand'
 
 useSeoMeta({
@@ -45,17 +44,11 @@ function scrollToSection(event: MouseEvent) {
 <template>
   <div class="px-4 py-16 sm:px-6 lg:px-8">
     <RevealSection class="mx-auto max-w-3xl">
-      <header class="flex items-center gap-3">
-        <Logo :size="44" :showWordmark="false" />
-        <div>
-          <div class="font-display text-base font-bold text-white">YM²</div>
-          <p class="text-xs font-semibold uppercase tracking-widest text-slate-500">
-            Privacy Policy
-          </p>
-        </div>
-      </header>
+      <p class="font-display text-sm font-semibold uppercase tracking-widest text-secondary">
+        Privacy Policy
+      </p>
 
-      <h1 class="mt-6 font-display text-4xl font-extrabold text-white">
+      <h1 class="mt-3 font-display text-4xl font-extrabold text-white">
         How YM² handles your data
       </h1>
       <p class="mt-3 text-sm text-slate-500">Last updated {{ lastUpdated }}</p>
