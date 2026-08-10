@@ -86,12 +86,16 @@ async function main() {
   await writeFile(path.join(ROOT, 'public/favicon.ico'), icoBuffer);
   await unlink(icoSource);
 
-  // OG / social share image: a composed card (icon chip + "YM²" title +
-  // tagline on a dark, brand-gradient-blob background), matching the
-  // polish of the site's own hero section — not just the bare logo mark
-  // letterboxed onto black, which reads as unfinished in link-preview
-  // contexts (WhatsApp/iMessage/Slack all render this fairly small, so
-  // explicit text matters for recognizability at that size).
+  // OG / social share image: a composed card (icon chip + "YOUR MONEY
+  // MATTERS" title + tagline on a dark, brand-gradient-blob background),
+  // matching the polish of the site's own hero section — not just the
+  // bare logo mark letterboxed onto black, which reads as unfinished in
+  // link-preview contexts. The title is "YOUR MONEY MATTERS" rather than
+  // "YM²" since the icon chip already visually reads as "YM²" — same
+  // no-redundant-text reasoning applied to the on-page navbar/footer
+  // logo lockup. Caps + letter-spacing matches the site's established
+  // eyebrow/label typographic convention (see Logo.vue's tagline,
+  // SectionHeading's eyebrow, etc.).
   const OG_W = 1200;
   const OG_H = 630;
   const ogBackground = Buffer.from(`
@@ -114,7 +118,7 @@ async function main() {
       <circle cx="120" cy="80" r="340" fill="url(#blob1)"/>
       <circle cx="1080" cy="120" r="300" fill="url(#blob2)"/>
       <circle cx="950" cy="560" r="320" fill="url(#blob3)"/>
-      <text x="470" y="300" font-family="Arial, Helvetica, sans-serif" font-weight="800" font-size="92" fill="#ffffff">YM<tspan font-size="52" dy="-38">2</tspan></text>
+      <text x="470" y="300" font-family="Arial, Helvetica, sans-serif" font-weight="800" font-size="46" letter-spacing="2" fill="#ffffff">YOUR MONEY MATTERS</text>
       <text x="470" y="365" font-family="Arial, Helvetica, sans-serif" font-weight="600" font-size="34" fill="#94a3b8">Track. Understand. Grow.</text>
     </svg>
   `);
