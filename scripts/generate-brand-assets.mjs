@@ -86,9 +86,53 @@ async function main() {
   await writeFile(path.join(ROOT, 'public/favicon.ico'), icoBuffer);
   await unlink(icoSource);
 
-  // OG / social share image: 1200x630 card, letterboxed on black.
-  await sharp(opaqueBuffer)
-    .resize(1200, 630, { fit: 'contain', background: BLACK })
+  // OG / social share image: a composed card (icon chip + "YM²" title +
+  // tagline on a dark, brand-gradient-blob background), matching the
+  // polish of the site's own hero section — not just the bare logo mark
+  // letterboxed onto black, which reads as unfinished in link-preview
+  // contexts (WhatsApp/iMessage/Slack all render this fairly small, so
+  // explicit text matters for recognizability at that size).
+  const OG_W = 1200;
+  const OG_H = 630;
+  const ogBackground = Buffer.from(`
+    <svg width="${OG_W}" height="${OG_H}" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="blob1" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#2563EB" stop-opacity="0.55"/>
+          <stop offset="100%" stop-color="#2563EB" stop-opacity="0"/>
+        </radialGradient>
+        <radialGradient id="blob2" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#14B8A6" stop-opacity="0.45"/>
+          <stop offset="100%" stop-color="#14B8A6" stop-opacity="0"/>
+        </radialGradient>
+        <radialGradient id="blob3" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#22C55E" stop-opacity="0.4"/>
+          <stop offset="100%" stop-color="#22C55E" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+      <rect width="${OG_W}" height="${OG_H}" fill="#020617"/>
+      <circle cx="120" cy="80" r="340" fill="url(#blob1)"/>
+      <circle cx="1080" cy="120" r="300" fill="url(#blob2)"/>
+      <circle cx="950" cy="560" r="320" fill="url(#blob3)"/>
+      <text x="470" y="300" font-family="Arial, Helvetica, sans-serif" font-weight="800" font-size="92" fill="#ffffff">YM<tspan font-size="52" dy="-38">2</tspan></text>
+      <text x="470" y="365" font-family="Arial, Helvetica, sans-serif" font-weight="600" font-size="34" fill="#94a3b8">Track. Understand. Grow.</text>
+    </svg>
+  `);
+
+  const ogIconSize = 260;
+  const ogIconRadius = 56;
+  const ogIconMask = Buffer.from(
+    `<svg width="${ogIconSize}" height="${ogIconSize}"><rect width="${ogIconSize}" height="${ogIconSize}" rx="${ogIconRadius}" ry="${ogIconRadius}" fill="#fff"/></svg>`,
+  );
+  const ogIcon = await sharp(opaqueBuffer)
+    .resize(1024, 1024, { fit: 'contain', background: BLACK })
+    .resize(ogIconSize, ogIconSize)
+    .composite([{ input: ogIconMask, blend: 'dest-in' }])
+    .png()
+    .toBuffer();
+
+  await sharp(ogBackground)
+    .composite([{ input: ogIcon, left: 120, top: 185 }])
     .png()
     .toFile(path.join(ROOT, 'public/og-image.png'));
 
