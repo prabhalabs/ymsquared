@@ -2,12 +2,31 @@
 @config '../tailwind.config.ts';
 
 @theme {
-  --color-background: #020617;
-  --color-card: #0f172a;
-  --color-border: #1e293b;
-  --color-primary: #2563eb;
-  --color-secondary: #14b8a6;
-  --color-accent: #22c55e;
+  /* YM² brand palette — Deep Teal + Warm Ivory is the recognizable YM²
+     signature: no copper, no blue, no competing accents. Recommended mix
+     is ~65% ivory/neutrals, ~25% Deep Teal, ~7% Secondary Teal (small
+     highlights/accents only), ~3% semantic colors. Light theme: ivory is
+     the page canvas, charcoal ("ink") is the default text color — ink also
+     doubles as the "Why YM²" dark band's background, with ivory text and
+     Secondary Teal accents within that band. */
+  --color-background: #f4f0e7;
+  --color-card: #faf8f3;
+  --color-border: #d8d5cc;
+  --color-primary: #134840;
+  --color-primary-hover: #0d3630;
+  --color-secondary: #16b8a6;
+  --color-secondary-soft: #d9f5f1;
+  --color-ivory: #f4f0e7;
+  --color-ink: #101918;
+  --color-disabled: #d9d7cf;
+  --color-disabled-ink: #8a8982;
+  --color-muted: #596662;
+  --color-muted-dim: #7c8783;
+  /* Semantic colors — kept limited, used only for actual status states. */
+  --color-success: #16805b;
+  --color-warning: #b7791f;
+  --color-error: #c94b4b;
+  --color-info: #3478a6;
 
   --font-sans:
     'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
@@ -20,7 +39,7 @@
 
 @layer base {
   html {
-    color-scheme: dark;
+    color-scheme: light;
   }
 
   body {
@@ -36,7 +55,7 @@
 
   ::selection {
     background-color: color-mix(in srgb, var(--color-primary) 50%, transparent);
-    color: white;
+    color: var(--color-ivory);
   }
 
   /* Respect users who've asked for less motion: freeze scroll-reveal in place

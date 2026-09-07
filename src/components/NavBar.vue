@@ -31,7 +31,7 @@ watch(
     <div class="mx-auto max-w-7xl px-4 pt-4 sm:px-6 lg:px-8">
       <nav class="glass flex items-center justify-between rounded-2xl px-4 py-3 sm:px-6" aria-label="Primary">
         <router-link to="/" class="shrink-0" aria-label="YM² home — Your Money Matters">
-          <Logo :showWordmark="false" showTagline />
+          <Logo variant="dark" :showWordmark="false" showTagline />
         </router-link>
 
         <div class="hidden items-center gap-1 md:flex">
@@ -39,7 +39,7 @@ watch(
             v-for="link in navLinks"
             :key="link.label"
             :to="link.to"
-            class="rounded-full px-4 py-2 text-sm font-medium text-slate-300 transition-colors hover:bg-white/5 hover:text-white"
+            class="rounded-full px-4 py-2 text-sm font-medium text-ink/80 transition-colors hover:bg-ink/5 hover:text-ink"
           >
             {{ link.label }}
           </router-link>
@@ -56,7 +56,7 @@ watch(
 
         <button
           type="button"
-          class="inline-flex items-center justify-center rounded-full p-2 text-white md:hidden"
+          class="inline-flex items-center justify-center rounded-full p-2 text-ink md:hidden"
           :aria-expanded="isMenuOpen"
           aria-label="Toggle navigation menu"
           @click="isMenuOpen = !isMenuOpen"
@@ -79,7 +79,7 @@ watch(
             v-for="link in navLinks"
             :key="link.label"
             :to="link.to"
-            class="rounded-xl px-4 py-3 text-sm font-medium text-slate-300 hover:bg-white/5 hover:text-white"
+            class="rounded-xl px-4 py-3 text-sm font-medium text-ink/80 hover:bg-ink/5 hover:text-ink"
           >
             {{ link.label }}
           </router-link>

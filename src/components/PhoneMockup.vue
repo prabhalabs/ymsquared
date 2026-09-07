@@ -3,7 +3,7 @@ import { ShoppingBag, UtensilsCrossed, Car, Zap } from '@lucide/vue'
 
 const transactions = [
   { icon: ShoppingBag, label: 'BigBasket', category: 'Groceries', amount: '-₹1,240', color: 'text-primary' },
-  { icon: UtensilsCrossed, label: 'Swiggy', category: 'Food', amount: '-₹420', color: 'text-accent' },
+  { icon: UtensilsCrossed, label: 'Swiggy', category: 'Food', amount: '-₹420', color: 'text-secondary' },
   { icon: Car, label: 'Uber', category: 'Transport', amount: '-₹185', color: 'text-secondary' },
   { icon: Zap, label: 'Electricity Bill', category: 'Utilities', amount: '-₹1,890', color: 'text-primary' },
 ]
@@ -14,18 +14,18 @@ const chartBars = [40, 65, 30, 80, 55, 90, 45]
 <template>
   <div class="relative mx-auto w-[270px] shrink-0 select-none sm:w-[300px]" aria-hidden="true">
     <div
-      class="relative rounded-[2.75rem] border-[10px] border-slate-800 bg-black p-2 shadow-2xl shadow-black/60"
+      class="relative rounded-[2.75rem] border-[10px] border-ink bg-black p-2 shadow-2xl shadow-black/60"
     >
       <div
-        class="absolute left-1/2 top-4 z-10 h-1.5 w-16 -translate-x-1/2 rounded-full bg-slate-800"
+        class="absolute left-1/2 top-4 z-10 h-1.5 w-16 -translate-x-1/2 rounded-full bg-ink"
       />
       <div
         class="flex h-[540px] flex-col overflow-hidden rounded-[2.1rem] bg-gradient-to-b from-card to-background px-5 pb-6 pt-10 sm:h-[600px]"
       >
-        <p class="text-xs text-slate-400">Good morning</p>
-        <h3 class="font-display text-2xl font-bold text-white">Your Balance</h3>
-        <p class="mt-1 font-display text-4xl font-extrabold text-white">₹84,320</p>
-        <p class="mt-1 text-xs font-medium text-accent">+₹12,050 this month</p>
+        <p class="text-xs text-muted">Good morning</p>
+        <h3 class="font-display text-2xl font-bold text-ink">Your Balance</h3>
+        <p class="mt-1 font-display text-4xl font-extrabold text-ink">₹84,320</p>
+        <p class="mt-1 text-xs font-medium text-secondary">+₹12,050 this month</p>
 
         <div class="mt-6 flex h-20 items-end gap-2">
           <div
@@ -36,25 +36,25 @@ const chartBars = [40, 65, 30, 80, 55, 90, 45]
           />
         </div>
 
-        <p class="mt-6 text-xs font-semibold uppercase tracking-wide text-slate-500">
+        <p class="mt-6 text-xs font-semibold uppercase tracking-wide text-muted-dim">
           Recent transactions
         </p>
         <div class="mt-3 flex flex-col gap-3">
           <div
             v-for="tx in transactions"
             :key="tx.label"
-            class="flex items-center justify-between rounded-xl bg-white/[0.03] px-3 py-2.5"
+            class="flex items-center justify-between rounded-xl bg-ink/[0.03] px-3 py-2.5"
           >
             <div class="flex items-center gap-3">
-              <span class="flex h-8 w-8 items-center justify-center rounded-full bg-white/5">
+              <span class="flex h-8 w-8 items-center justify-center rounded-full bg-ink/5">
                 <component :is="tx.icon" class="h-4 w-4" :class="tx.color" />
               </span>
               <div class="leading-tight">
-                <p class="text-sm font-medium text-white">{{ tx.label }}</p>
-                <p class="text-[11px] text-slate-500">{{ tx.category }}</p>
+                <p class="text-sm font-medium text-ink">{{ tx.label }}</p>
+                <p class="text-[11px] text-muted-dim">{{ tx.category }}</p>
               </div>
             </div>
-            <span class="text-sm font-semibold text-white">{{ tx.amount }}</span>
+            <span class="text-sm font-semibold text-ink">{{ tx.amount }}</span>
           </div>
         </div>
       </div>

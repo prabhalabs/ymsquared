@@ -6,14 +6,14 @@ defineProps<{ reason: WhyReason }>()
 
 <template>
   <div
-    class="flex h-full items-start gap-4 rounded-2xl border border-border bg-gradient-to-b from-card to-card/40 p-5 transition-colors duration-300 hover:border-accent/50"
+    class="flex h-full items-start gap-4 rounded-2xl border border-ivory/10 bg-ivory/5 p-5 transition-colors duration-300 hover:border-secondary/40 hover:bg-secondary/10"
   >
-    <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-accent/10 text-accent">
+    <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-secondary/15 text-secondary">
       <component :is="reason.icon" class="h-5 w-5" />
     </span>
     <div>
-      <h3 class="font-display text-base font-bold text-white">{{ reason.title }}</h3>
-      <p class="mt-1 text-sm leading-relaxed text-slate-400">{{ reason.description }}</p>
+      <h3 class="font-display text-base font-bold text-ivory">{{ reason.title }}</h3>
+      <p class="mt-1 text-sm leading-relaxed text-ivory/70">{{ reason.description }}</p>
     </div>
   </div>
 </template>

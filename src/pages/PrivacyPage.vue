@@ -48,12 +48,12 @@ function scrollToSection(event: MouseEvent) {
         Privacy Policy
       </p>
 
-      <h1 class="mt-3 font-display text-4xl font-extrabold text-white">
+      <h1 class="mt-3 font-display text-4xl font-extrabold text-ink">
         How YM² handles your data
       </h1>
-      <p class="mt-3 text-sm text-slate-500">Last updated {{ lastUpdated }}</p>
+      <p class="mt-3 text-sm text-muted-dim">Last updated {{ lastUpdated }}</p>
 
-      <p class="mt-6 max-w-2xl border-b border-border pb-8 leading-relaxed text-slate-400">
+      <p class="mt-6 max-w-2xl border-b border-border pb-8 leading-relaxed text-muted">
         This policy describes how the YM² Android app handles data — written to match what the
         app's code actually does, not boilerplate. If a future version changes what the app reads
         or where data goes, this page is updated before that change ships.
@@ -62,14 +62,14 @@ function scrollToSection(event: MouseEvent) {
 
     <RevealSection class="mx-auto mt-8 max-w-3xl">
       <nav aria-label="Sections" class="rounded-2xl border border-border bg-card/40 p-6">
-        <span class="text-xs font-semibold uppercase tracking-widest text-slate-500">
+        <span class="text-xs font-semibold uppercase tracking-widest text-muted-dim">
           On this page
         </span>
         <ol class="mt-3 grid list-decimal gap-x-8 gap-y-2 pl-5 text-sm sm:grid-cols-2">
           <li v-for="section in sections" :key="section.id">
             <a
               :href="`#${section.id}`"
-              class="text-slate-300 transition-colors hover:text-white"
+              class="text-ink/80 transition-colors hover:text-ink"
               @click="scrollToSection"
             >
               {{ section.label }}
@@ -79,9 +79,9 @@ function scrollToSection(event: MouseEvent) {
       </nav>
     </RevealSection>
 
-    <div class="prose-legal mx-auto mt-10 max-w-3xl space-y-10 text-slate-300">
+    <div class="prose-legal mx-auto mt-10 max-w-3xl space-y-10 text-ink/80">
       <RevealSection as="section" aria-labelledby="short-version">
-        <h2 id="short-version" class="scroll-mt-28 font-display text-xl font-bold text-white">
+        <h2 id="short-version" class="scroll-mt-28 font-display text-xl font-bold text-ink">
           The short version
         </h2>
         <p class="mt-3 leading-relaxed">
@@ -96,13 +96,13 @@ function scrollToSection(event: MouseEvent) {
       </RevealSection>
 
       <RevealSection as="section" aria-labelledby="what-we-collect">
-        <h2 id="what-we-collect" class="scroll-mt-28 font-display text-xl font-bold text-white">
+        <h2 id="what-we-collect" class="scroll-mt-28 font-display text-xl font-bold text-ink">
           What the app reads, and why
         </h2>
         <div class="mt-4 overflow-x-auto rounded-xl border border-border">
           <table class="w-full min-w-[560px] text-left text-sm">
             <thead>
-              <tr class="border-b border-border text-xs uppercase tracking-wider text-slate-500">
+              <tr class="border-b border-border text-xs uppercase tracking-wider text-muted-dim">
                 <th class="px-4 py-3 font-semibold">Data</th>
                 <th class="px-4 py-3 font-semibold">Why the app reads it</th>
                 <th class="px-4 py-3 font-semibold">Where it goes</th>
@@ -112,7 +112,7 @@ function scrollToSection(event: MouseEvent) {
               <tr>
                 <td class="px-4 py-3 align-top">
                   SMS inbox
-                  <div class="text-xs text-slate-500">(with your permission)</div>
+                  <div class="text-xs text-muted-dim">(with your permission)</div>
                 </td>
                 <td class="px-4 py-3 align-top">
                   To detect bank/UPI transaction alerts and turn them into transaction records
@@ -124,7 +124,7 @@ function scrollToSection(event: MouseEvent) {
               <tr>
                 <td class="px-4 py-3 align-top">
                   Gmail
-                  <div class="text-xs text-slate-500">(only if you explicitly connect it)</div>
+                  <div class="text-xs text-muted-dim">(only if you explicitly connect it)</div>
                 </td>
                 <td class="px-4 py-3 align-top">
                   To detect bank transaction confirmation emails, the same way SMS is used
@@ -154,25 +154,25 @@ function scrollToSection(event: MouseEvent) {
       </RevealSection>
 
       <RevealSection as="section" aria-labelledby="sms-gmail">
-        <h2 id="sms-gmail" class="scroll-mt-28 font-display text-xl font-bold text-white">
+        <h2 id="sms-gmail" class="scroll-mt-28 font-display text-xl font-bold text-ink">
           SMS and Gmail permission use, in plain terms
         </h2>
         <p class="mt-3 leading-relaxed">
           If you grant SMS permission, YM² reads transaction-related SMS messages (from banks and
           card issuers) to detect and log transactions automatically.
-          <strong class="text-white">SMS processing happens entirely on your device.</strong>
+          <strong class="text-ink">SMS processing happens entirely on your device.</strong>
           Message content is parsed locally to extract amount, merchant, and account details — the
           raw SMS text is never uploaded to any server, ever.
         </p>
         <p class="mt-3 leading-relaxed">
-          Gmail access is <strong class="text-white">entirely optional</strong>. If you choose to
+          Gmail access is <strong class="text-ink">entirely optional</strong>. If you choose to
           connect Gmail, YM² scans transaction-related emails (e.g. payment receipts) to fill in
-          gaps SMS parsing can't catch, using <strong class="text-white">read-only</strong> access
+          gaps SMS parsing can't catch, using <strong class="text-ink">read-only</strong> access
           via Google's own sign-in consent screen. You can decline this permission and use YM²
           fully without it.
         </p>
         <p class="mt-3 leading-relaxed">
-          <strong class="text-white">Does YM² support adding transactions manually? Yes.</strong>
+          <strong class="text-ink">Does YM² support adding transactions manually? Yes.</strong>
           A "+" button is available on both the Dashboard and the Transactions section to create a
           manual transaction at any time — for a bank that doesn't send transaction SMS or email,
           or if you'd simply rather not grant SMS or Gmail permission at all. YM² works fully on
@@ -202,18 +202,18 @@ function scrollToSection(event: MouseEvent) {
       </RevealSection>
 
       <RevealSection as="section" aria-labelledby="ai-processing">
-        <h2 id="ai-processing" class="scroll-mt-28 font-display text-xl font-bold text-white">
+        <h2 id="ai-processing" class="scroll-mt-28 font-display text-xl font-bold text-ink">
           AI processing &amp; approval
         </h2>
         <p class="mt-3 leading-relaxed">
           Categorization and merchant-learning models run on-device. No transaction content is
           sent to a remote AI service as part of this processing. Transactions that are
           automatically categorized and approved by YM²'s AI
-          <strong class="text-white">always remain visible and editable</strong> in your Approval
+          <strong class="text-ink">always remain visible and editable</strong> in your Approval
           Queue — automation never locks you out of correcting a transaction.
         </p>
         <p class="mt-3 leading-relaxed">
-          <strong class="text-white">What happens if I don't approve a transaction?</strong> You
+          <strong class="text-ink">What happens if I don't approve a transaction?</strong> You
           can turn on auto-approve in Settings so detected transactions are approved by themselves
           after a time period you choose. If you leave auto-approve off, nothing is applied to
           your budgets or reports automatically — every detected transaction simply sits in your
@@ -222,7 +222,7 @@ function scrollToSection(event: MouseEvent) {
       </RevealSection>
 
       <RevealSection as="section" aria-labelledby="data-use">
-        <h2 id="data-use" class="scroll-mt-28 font-display text-xl font-bold text-white">
+        <h2 id="data-use" class="scroll-mt-28 font-display text-xl font-bold text-ink">
           How data is used
         </h2>
         <p class="mt-3 leading-relaxed">
@@ -233,7 +233,7 @@ function scrollToSection(event: MouseEvent) {
       </RevealSection>
 
       <RevealSection as="section" aria-labelledby="offline-storage">
-        <h2 id="offline-storage" class="scroll-mt-28 font-display text-xl font-bold text-white">
+        <h2 id="offline-storage" class="scroll-mt-28 font-display text-xl font-bold text-ink">
           Offline storage
         </h2>
         <p class="mt-3 leading-relaxed">
@@ -244,7 +244,7 @@ function scrollToSection(event: MouseEvent) {
       </RevealSection>
 
       <RevealSection as="section" aria-labelledby="internet-usage">
-        <h2 id="internet-usage" class="scroll-mt-28 font-display text-xl font-bold text-white">
+        <h2 id="internet-usage" class="scroll-mt-28 font-display text-xl font-bold text-ink">
           Internet usage
         </h2>
         <p class="mt-3 leading-relaxed">
@@ -255,18 +255,18 @@ function scrollToSection(event: MouseEvent) {
       </RevealSection>
 
       <RevealSection as="section" aria-labelledby="data-sharing">
-        <h2 id="data-sharing" class="scroll-mt-28 font-display text-xl font-bold text-white">
+        <h2 id="data-sharing" class="scroll-mt-28 font-display text-xl font-bold text-ink">
           Data sharing
         </h2>
         <p class="mt-3 leading-relaxed">
-          <strong class="text-white">We do not sell user data.</strong> YM² contains no
+          <strong class="text-ink">We do not sell user data.</strong> YM² contains no
           advertising SDKs, no analytics SDKs, and no third-party trackers. We do not share your
           financial data with advertisers, data brokers, or any other third party.
         </p>
       </RevealSection>
 
       <RevealSection as="section" aria-labelledby="security">
-        <h2 id="security" class="scroll-mt-28 font-display text-xl font-bold text-white">
+        <h2 id="security" class="scroll-mt-28 font-display text-xl font-bold text-ink">
           Security
         </h2>
         <p class="mt-3 leading-relaxed">
@@ -276,7 +276,7 @@ function scrollToSection(event: MouseEvent) {
       </RevealSection>
 
       <RevealSection as="section" aria-labelledby="backups">
-        <h2 id="backups" class="scroll-mt-28 font-display text-xl font-bold text-white">
+        <h2 id="backups" class="scroll-mt-28 font-display text-xl font-bold text-ink">
           Backups
         </h2>
         <p class="mt-3 leading-relaxed">
@@ -289,20 +289,20 @@ function scrollToSection(event: MouseEvent) {
       </RevealSection>
 
       <RevealSection as="section" aria-labelledby="data-deletion">
-        <h2 id="data-deletion" class="scroll-mt-28 font-display text-xl font-bold text-white">
+        <h2 id="data-deletion" class="scroll-mt-28 font-display text-xl font-bold text-ink">
           Data deletion
         </h2>
         <p class="mt-3 leading-relaxed">
           Because there is no account and no server-side copy of your data, there is nothing for
           us to delete on your behalf — your data only ever exists on your device (and in any
           backup file you've created yourself). To remove all app data, uninstall the app, or use
-          Android's own <strong class="text-white">Settings → Apps → YM² → Storage → Clear
+          Android's own <strong class="text-ink">Settings → Apps → YM² → Storage → Clear
           storage</strong>.
         </p>
       </RevealSection>
 
       <RevealSection as="section" aria-labelledby="permissions">
-        <h2 id="permissions" class="scroll-mt-28 font-display text-xl font-bold text-white">
+        <h2 id="permissions" class="scroll-mt-28 font-display text-xl font-bold text-ink">
           Permissions
         </h2>
         <p class="mt-3 leading-relaxed">
@@ -314,7 +314,7 @@ function scrollToSection(event: MouseEvent) {
       </RevealSection>
 
       <RevealSection as="section" aria-labelledby="children-privacy">
-        <h2 id="children-privacy" class="scroll-mt-28 font-display text-xl font-bold text-white">
+        <h2 id="children-privacy" class="scroll-mt-28 font-display text-xl font-bold text-ink">
           Children's privacy
         </h2>
         <p class="mt-3 leading-relaxed">
@@ -324,7 +324,7 @@ function scrollToSection(event: MouseEvent) {
       </RevealSection>
 
       <RevealSection as="section" aria-labelledby="changes">
-        <h2 id="changes" class="scroll-mt-28 font-display text-xl font-bold text-white">
+        <h2 id="changes" class="scroll-mt-28 font-display text-xl font-bold text-ink">
           Changes to this policy
         </h2>
         <p class="mt-3 leading-relaxed">
@@ -334,7 +334,7 @@ function scrollToSection(event: MouseEvent) {
       </RevealSection>
 
       <RevealSection as="section" aria-labelledby="google-api">
-        <h2 id="google-api" class="scroll-mt-28 font-display text-xl font-bold text-white">
+        <h2 id="google-api" class="scroll-mt-28 font-display text-xl font-bold text-ink">
           Google API Limited Use Statement
         </h2>
         <p class="mt-3 leading-relaxed">
@@ -354,7 +354,7 @@ function scrollToSection(event: MouseEvent) {
         aria-labelledby="contact"
         class="rounded-2xl border border-border bg-primary/10 p-6"
       >
-        <h2 id="contact" class="font-display text-xl font-bold text-white">Contact</h2>
+        <h2 id="contact" class="font-display text-xl font-bold text-ink">Contact</h2>
         <p class="mt-3 leading-relaxed">
           Questions about this policy? Email
           <a

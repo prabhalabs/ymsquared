@@ -4,10 +4,13 @@ interface Props {
   title: string
   subtitle?: string
   align?: 'left' | 'center'
+  /** 'inverted' for use on dark-band sections (e.g. the teal "Why YM²" band). */
+  variant?: 'default' | 'inverted'
 }
 
 withDefaults(defineProps<Props>(), {
   align: 'center',
+  variant: 'default',
 })
 </script>
 
@@ -19,10 +22,17 @@ withDefaults(defineProps<Props>(), {
     >
       {{ eyebrow }}
     </p>
-    <h2 class="mt-3 font-display text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
+    <h2
+      class="mt-3 font-display text-3xl font-extrabold tracking-tight sm:text-4xl"
+      :class="variant === 'inverted' ? 'text-ivory' : 'text-ink'"
+    >
       {{ title }}
     </h2>
-    <p v-if="subtitle" class="mt-4 text-base leading-relaxed text-slate-400 sm:text-lg">
+    <p
+      v-if="subtitle"
+      class="mt-4 text-base leading-relaxed sm:text-lg"
+      :class="variant === 'inverted' ? 'text-ivory/70' : 'text-muted'"
+    >
       {{ subtitle }}
     </p>
   </div>

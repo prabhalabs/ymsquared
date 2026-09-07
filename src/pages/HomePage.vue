@@ -25,7 +25,6 @@ import { useSeoMeta } from '@/composables/useSeoMeta'
 import { scrollToElement } from '@/composables/useSmoothScroll'
 import type { Feature, WhyReason } from '@/types/feature'
 import AppButton from '@/components/AppButton.vue'
-import GradientBlob from '@/components/GradientBlob.vue'
 import PhoneMockup from '@/components/PhoneMockup.vue'
 import FloatingCard from '@/components/FloatingCard.vue'
 import FeatureCard from '@/components/FeatureCard.vue'
@@ -160,26 +159,22 @@ const whyReasons: WhyReason[] = [
 <template>
   <div>
     <!-- Hero -->
-    <section class="relative overflow-hidden px-4 pb-24 pt-12 sm:px-6 lg:px-8">
-      <GradientBlob color="primary" :size="480" class="-left-40 -top-20" />
-      <GradientBlob color="secondary" :size="420" class="-right-32 top-40" :delay="4" />
-      <GradientBlob color="accent" :size="360" class="left-1/3 top-96" :delay="8" />
-
+    <section class="relative overflow-hidden px-4 pb-12 pt-12 sm:px-6 lg:px-8">
       <div class="relative mx-auto grid max-w-7xl items-center gap-16 lg:grid-cols-2">
         <RevealSection>
           <p class="font-display text-sm font-semibold uppercase tracking-widest text-secondary">
             Private &middot; Offline-First &middot; AI-Assisted
           </p>
-          <h1 class="mt-4 font-display text-5xl font-extrabold tracking-tight text-white sm:text-6xl">
+          <h1 class="mt-4 font-display text-7xl font-extrabold leading-none tracking-tight text-ink sm:text-8xl">
             YM²
           </h1>
-          <p class="mt-2 font-display text-xl font-bold text-secondary sm:text-2xl">
+          <p class="mt-3 font-display text-4xl font-extrabold leading-tight tracking-tight text-secondary sm:text-5xl">
             {{ BRAND_TAGLINE }}
           </p>
-          <p class="mt-1 font-display text-2xl font-bold text-white sm:text-3xl">
+          <p class="mt-2 font-display text-2xl font-bold text-ink sm:text-3xl">
             Track. Understand. Grow.
           </p>
-          <p class="mt-6 max-w-lg text-lg leading-relaxed text-slate-400">
+          <p class="mt-6 max-w-lg text-lg leading-relaxed text-muted">
             Your private AI-powered money manager. Automatically organize your finances from SMS,
             Gmail and manual entries while keeping your data on your device.
           </p>
@@ -190,7 +185,7 @@ const whyReasons: WhyReason[] = [
               </template>
               Download on Google Play
             </AppButton>
-            <AppButton as="a" href="#features" variant="ghost" size="lg" @click="scrollToFeatures">
+            <AppButton as="a" href="#features" variant="secondary" size="lg" @click="scrollToFeatures">
               See features
             </AppButton>
           </div>
@@ -216,7 +211,7 @@ const whyReasons: WhyReason[] = [
     </section>
 
     <!-- Features -->
-    <section id="features" class="scroll-mt-28 px-4 py-24 sm:px-6 lg:px-8">
+    <section id="features" class="scroll-mt-28 px-4 pb-24 pt-12 sm:px-6 lg:px-8">
       <RevealSection>
         <SectionHeading
           eyebrow="Everything, automated"
@@ -233,9 +228,10 @@ const whyReasons: WhyReason[] = [
     </section>
 
     <!-- Why YM² -->
-    <section id="why-ym2" class="scroll-mt-28 border-t border-border bg-card/30 px-4 py-24 sm:px-6 lg:px-8">
+    <section id="why-ym2" class="scroll-mt-28 bg-ink px-4 py-24 sm:px-6 lg:px-8">
       <RevealSection>
         <SectionHeading
+          variant="inverted"
           eyebrow="Why YM²"
           title="Built to be trusted with your money"
           subtitle="No shortcuts on privacy — even if that means fewer features than a cloud-first competitor."
@@ -254,12 +250,10 @@ const whyReasons: WhyReason[] = [
       <RevealSection
         class="relative mx-auto max-w-4xl overflow-hidden rounded-3xl border border-border bg-gradient-to-br from-card to-background px-8 py-16 text-center"
       >
-        <GradientBlob color="primary" :size="300" class="-right-20 -top-20" />
-        <GradientBlob color="accent" :size="260" class="-left-16 bottom-0" :delay="3" />
-        <h2 class="relative font-display text-3xl font-extrabold text-white sm:text-4xl">
+        <h2 class="relative font-display text-3xl font-extrabold text-ink sm:text-4xl">
           Take control of your money, privately.
         </h2>
-        <p class="relative mx-auto mt-4 max-w-xl text-slate-400">
+        <p class="relative mx-auto mt-4 max-w-xl text-muted">
           Download YM² and get your finances organized in minutes — no account required to start.
         </p>
         <div class="relative mt-8 flex justify-center">

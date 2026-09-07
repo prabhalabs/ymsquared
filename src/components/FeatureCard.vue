@@ -13,7 +13,7 @@ defineProps<{ feature: Feature }>()
     >
       <component :is="feature.icon" class="h-5 w-5" />
     </span>
-    <h3 class="mt-4 font-display text-lg font-bold text-white">{{ feature.title }}</h3>
-    <p class="mt-2 text-sm leading-relaxed text-slate-400">{{ feature.description }}</p>
+    <h3 class="mt-4 font-display text-lg font-bold text-ink">{{ feature.title }}</h3>
+    <p class="mt-2 text-sm leading-relaxed text-muted">{{ feature.description }}</p>
   </div>
 </template>

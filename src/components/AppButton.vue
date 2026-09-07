@@ -5,15 +5,17 @@ interface Props {
   as?: 'button' | 'a' | 'router-link'
   href?: string
   to?: string
-  variant?: 'primary' | 'secondary' | 'ghost'
+  variant?: 'primary' | 'secondary' | 'soft'
   size?: 'md' | 'lg'
   target?: string
+  disabled?: boolean
 }
 
 withDefaults(defineProps<Props>(), {
   as: 'button',
   variant: 'primary',
   size: 'md',
+  disabled: false,
 })
 
 const rippleActive = ref(false)
@@ -40,13 +42,18 @@ function triggerRipple(event: MouseEvent) {
     :href="as === 'a' ? href : undefined"
     :to="as === 'router-link' ? to : undefined"
     :target="as === 'a' ? target : undefined"
-    class="group relative inline-flex select-none items-center justify-center gap-2 overflow-hidden rounded-full font-display font-semibold transition-transform duration-200 ease-out active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+    :disabled="as === 'button' ? disabled : undefined"
+    :aria-disabled="disabled ? 'true' : undefined"
+    class="group relative inline-flex select-none items-center justify-center gap-2 overflow-hidden rounded-full font-display font-semibold transition-colors duration-200 ease-out active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
     :class="[
       size === 'lg' ? 'px-8 py-4 text-base' : 'px-5 py-2.5 text-sm',
-      variant === 'primary' &&
-        'bg-gradient-to-r from-primary to-secondary text-white shadow-lg shadow-primary/25 hover:shadow-primary/40 hover:brightness-110',
-      variant === 'secondary' && 'bg-card text-white border border-border hover:border-primary/60',
-      variant === 'ghost' && 'text-white/80 hover:text-white hover:bg-white/5',
+      disabled
+        ? 'pointer-events-none bg-disabled text-disabled-ink'
+        : [
+            variant === 'primary' && 'bg-primary text-white hover:bg-primary-hover',
+            variant === 'secondary' && 'border border-primary text-primary hover:bg-secondary-soft',
+            variant === 'soft' && 'bg-secondary-soft text-primary hover:brightness-95',
+          ],
     ]"
     @mousedown="triggerRipple"
   >

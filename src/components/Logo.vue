@@ -61,14 +61,14 @@ const textOffsetPx = computed(() => Math.round(props.size * ICON_TEXT_OFFSET_RAT
       <span
         v-if="showWordmark"
         class="font-display text-lg font-bold tracking-tight"
-        :class="variant === 'light' ? 'text-white' : 'text-slate-900'"
+        :class="variant === 'light' ? 'text-ivory' : 'text-ink'"
       >
         {{ BRAND_NAME }}
       </span>
       <span
         v-if="showTagline"
         class="text-[10px] font-semibold uppercase tracking-wider"
-        :class="[variant === 'light' ? 'text-slate-400' : 'text-slate-500', showWordmark && 'mt-1']"
+        :class="[variant === 'light' ? 'text-ivory/70' : 'text-muted-dim', showWordmark && 'mt-1']"
       >
         {{ BRAND_TAGLINE }}
       </span>

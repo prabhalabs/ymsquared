@@ -18,12 +18,12 @@ const lastUpdated = '10 August 2026'
       <p class="font-display text-sm font-semibold uppercase tracking-widest text-secondary">
         Legal
       </p>
-      <h1 class="mt-3 font-display text-4xl font-extrabold text-white">Terms of Service</h1>
-      <p class="mt-3 text-sm text-slate-500">Last updated: {{ lastUpdated }}</p>
+      <h1 class="mt-3 font-display text-4xl font-extrabold text-ink">Terms of Service</h1>
+      <p class="mt-3 text-sm text-muted-dim">Last updated: {{ lastUpdated }}</p>
 
-      <div class="mt-10 space-y-10 text-slate-300">
+      <div class="mt-10 space-y-10 text-ink/80">
         <section aria-labelledby="disclaimer">
-          <h2 id="disclaimer" class="font-display text-xl font-bold text-white">Disclaimer</h2>
+          <h2 id="disclaimer" class="font-display text-xl font-bold text-ink">Disclaimer</h2>
           <p class="mt-3 leading-relaxed">
             YM² is a personal finance tracking tool provided for informational and organizational
             purposes only. It is not a bank, a financial institution, or a registered financial
@@ -32,7 +32,7 @@ const lastUpdated = '10 August 2026'
         </section>
 
         <section aria-labelledby="license">
-          <h2 id="license" class="font-display text-xl font-bold text-white">License</h2>
+          <h2 id="license" class="font-display text-xl font-bold text-ink">License</h2>
           <p class="mt-3 leading-relaxed">
             Subject to these Terms, you are granted a limited, non-exclusive, non-transferable,
             revocable license to install and use YM² on Android devices you own or control, for
@@ -41,7 +41,7 @@ const lastUpdated = '10 August 2026'
         </section>
 
         <section aria-labelledby="responsibilities">
-          <h2 id="responsibilities" class="font-display text-xl font-bold text-white">
+          <h2 id="responsibilities" class="font-display text-xl font-bold text-ink">
             User Responsibilities
           </h2>
           <ul class="mt-3 list-disc space-y-2 pl-5 leading-relaxed">
@@ -53,7 +53,7 @@ const lastUpdated = '10 August 2026'
         </section>
 
         <section aria-labelledby="no-warranty">
-          <h2 id="no-warranty" class="font-display text-xl font-bold text-white">No Warranty</h2>
+          <h2 id="no-warranty" class="font-display text-xl font-bold text-ink">No Warranty</h2>
           <p class="mt-3 leading-relaxed">
             YM² is provided "as is" and "as available," without warranties of any kind, whether
             express, implied, or statutory, including but not limited to implied warranties of
@@ -64,7 +64,7 @@ const lastUpdated = '10 August 2026'
         </section>
 
         <section aria-labelledby="liability">
-          <h2 id="liability" class="font-display text-xl font-bold text-white">
+          <h2 id="liability" class="font-display text-xl font-bold text-ink">
             Limitation of Liability
           </h2>
           <p class="mt-3 leading-relaxed">
@@ -76,7 +76,7 @@ const lastUpdated = '10 August 2026'
         </section>
 
         <section aria-labelledby="terms-contact">
-          <h2 id="terms-contact" class="font-display text-xl font-bold text-white">Contact</h2>
+          <h2 id="terms-contact" class="font-display text-xl font-bold text-ink">Contact</h2>
           <p class="mt-3 leading-relaxed">
             Questions about these Terms? Email
             <a

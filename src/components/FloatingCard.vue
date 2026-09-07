@@ -10,7 +10,7 @@ interface Props {
 }
 
 withDefaults(defineProps<Props>(), {
-  iconClass: 'text-accent',
+  iconClass: 'text-secondary',
   delay: 0,
 })
 </script>
@@ -21,12 +21,12 @@ withDefaults(defineProps<Props>(), {
     :style="{ animationDelay: `${delay}s` }"
   >
     <div class="flex items-center gap-3">
-      <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white/5">
+      <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-ink/5">
         <component :is="icon" class="h-4 w-4" :class="iconClass" />
       </span>
       <div class="leading-tight">
-        <p class="text-[11px] uppercase tracking-wide text-slate-400">{{ label }}</p>
-        <p class="font-display text-sm font-bold text-white">{{ value }}</p>
+        <p class="text-[11px] uppercase tracking-wide text-muted">{{ label }}</p>
+        <p class="font-display text-sm font-bold text-ink">{{ value }}</p>
       </div>
     </div>
   </div>

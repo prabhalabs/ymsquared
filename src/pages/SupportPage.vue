@@ -83,22 +83,22 @@ function toggle(index: number) {
           :aria-expanded="openIndex === index"
           @click="toggle(index)"
         >
-          <span class="font-display font-semibold text-white">{{ faq.question }}</span>
+          <span class="font-display font-semibold text-ink">{{ faq.question }}</span>
           <ChevronDownIcon
-            class="h-5 w-5 shrink-0 text-slate-400 transition-transform duration-200"
+            class="h-5 w-5 shrink-0 text-muted transition-transform duration-200"
             :class="{ 'rotate-180': openIndex === index }"
           />
         </button>
         <div v-show="openIndex === index" class="px-6 pb-5">
-          <p class="leading-relaxed text-slate-400">{{ faq.answer }}</p>
+          <p class="leading-relaxed text-muted">{{ faq.answer }}</p>
         </div>
       </div>
     </RevealSection>
 
     <RevealSection :delay="200" class="mx-auto mt-14 max-w-3xl rounded-2xl border border-border bg-gradient-to-br from-card to-background p-8 text-center">
       <EnvelopeIcon class="mx-auto h-8 w-8 text-secondary" />
-      <h2 class="mt-4 font-display text-xl font-bold text-white">Still need help?</h2>
-      <p class="mt-2 text-slate-400">Reach out and a real person will get back to you.</p>
+      <h2 class="mt-4 font-display text-xl font-bold text-ink">Still need help?</h2>
+      <p class="mt-2 text-muted">Reach out and a real person will get back to you.</p>
       <div class="mt-6 flex justify-center">
         <AppButton as="a" :href="`mailto:${SUPPORT_EMAIL}`">{{ SUPPORT_EMAIL }}</AppButton>
       </div>
