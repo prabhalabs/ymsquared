@@ -7,17 +7,17 @@ import { SUPPORT_EMAIL } from '@/constants/brand'
 useSeoMeta({
   title: 'Privacy Policy',
   description:
-    'How YM² handles SMS, Gmail, and manual transaction data — processed entirely on-device, never uploaded, never sold, never used for ads or tracking.',
+    'How YM² handles SMS and manual transaction data — processed entirely on-device, never uploaded, never sold, never used for ads or tracking.',
   path: '/privacy',
 })
 
-const lastUpdated = '10 August 2026'
+const lastUpdated = '17 September 2026'
 
 const sections = [
   { id: 'short-version', label: 'The short version' },
   { id: 'what-we-collect', label: 'What the app reads, and why' },
-  { id: 'sms-gmail', label: 'SMS and Gmail permission use' },
-  { id: 'ai-processing', label: 'AI processing & approval' },
+  { id: 'sms-permission', label: 'SMS permission use' },
+  { id: 'categorization', label: 'Categorization & approval' },
   { id: 'data-use', label: 'How data is used' },
   { id: 'offline-storage', label: 'Offline storage' },
   { id: 'internet-usage', label: 'Internet usage' },
@@ -28,7 +28,6 @@ const sections = [
   { id: 'permissions', label: 'Permissions' },
   { id: 'children-privacy', label: "Children's privacy" },
   { id: 'changes', label: 'Changes to this policy' },
-  { id: 'google-api', label: 'Google API Limited Use Statement' },
 ]
 
 function scrollToSection(event: MouseEvent) {
@@ -115,33 +114,21 @@ function scrollToSection(event: MouseEvent) {
                   <div class="text-xs text-muted-dim">(with your permission)</div>
                 </td>
                 <td class="px-4 py-3 align-top">
-                  To detect bank/UPI transaction alerts and turn them into transaction records
+                  To detect bank/UPI transaction alerts, from 18 supported Indian banks, and turn
+                  them into transaction records
                 </td>
                 <td class="px-4 py-3 align-top">
                   Stays on your device, in the app's local database. Never transmitted anywhere.
                 </td>
               </tr>
               <tr>
-                <td class="px-4 py-3 align-top">
-                  Gmail
-                  <div class="text-xs text-muted-dim">(only if you explicitly connect it)</div>
-                </td>
-                <td class="px-4 py-3 align-top">
-                  To detect bank transaction confirmation emails, the same way SMS is used
-                </td>
-                <td class="px-4 py-3 align-top">
-                  Read via Google's own Gmail API over an encrypted connection, directly from your
-                  device to Google — YM²'s developer never receives or stores a copy
-                </td>
-              </tr>
-              <tr>
                 <td class="px-4 py-3 align-top">Manual entries</td>
                 <td class="px-4 py-3 align-top">
-                  Transactions you add yourself via the "+" button, for banks that don't send SMS/
-                  email, or if you decline SMS/Gmail permission entirely
+                  Transactions you add yourself via the "+" button, for banks not yet supported,
+                  or if you decline SMS permission entirely
                 </td>
                 <td class="px-4 py-3 align-top">
-                  Stored the same way as SMS/Gmail-sourced transactions — on-device only
+                  Stored the same way as SMS-sourced transactions — on-device only
                 </td>
               </tr>
             </tbody>
@@ -153,9 +140,9 @@ function scrollToSection(event: MouseEvent) {
         </p>
       </RevealSection>
 
-      <RevealSection as="section" aria-labelledby="sms-gmail">
-        <h2 id="sms-gmail" class="scroll-mt-28 font-display text-xl font-bold text-ink">
-          SMS and Gmail permission use, in plain terms
+      <RevealSection as="section" aria-labelledby="sms-permission">
+        <h2 id="sms-permission" class="scroll-mt-28 font-display text-xl font-bold text-ink">
+          SMS permission use, in plain terms
         </h2>
         <p class="mt-3 leading-relaxed">
           If you grant SMS permission, YM² reads transaction-related SMS messages (from banks and
@@ -165,59 +152,43 @@ function scrollToSection(event: MouseEvent) {
           raw SMS text is never uploaded to any server, ever.
         </p>
         <p class="mt-3 leading-relaxed">
-          Gmail access is <strong class="text-ink">entirely optional</strong>. If you choose to
-          connect Gmail, YM² scans transaction-related emails (e.g. payment receipts) to fill in
-          gaps SMS parsing can't catch, using <strong class="text-ink">read-only</strong> access
-          via Google's own sign-in consent screen. You can decline this permission and use YM²
-          fully without it.
-        </p>
-        <p class="mt-3 leading-relaxed">
           <strong class="text-ink">Does YM² support adding transactions manually? Yes.</strong>
-          A "+" button is available on both the Dashboard and the Transactions section to create a
-          manual transaction at any time — for a bank that doesn't send transaction SMS or email,
-          or if you'd simply rather not grant SMS or Gmail permission at all. YM² works fully on
-          manual entry alone.
+          A "+" button is available from the Activity tab to create a manual transaction at any
+          time — for a bank that doesn't send transaction SMS, or if you'd simply rather not grant
+          SMS permission at all. YM² works fully on manual entry alone.
         </p>
         <ul class="mt-3 list-disc space-y-2 pl-5 leading-relaxed">
           <li>
             SMS is read only after you turn on "Enable SMS import" in Settings — never
             automatically, never at install time.
           </li>
-          <li>
-            You can revoke either permission at any time: turn the SMS toggle off, or disconnect
-            Gmail access from your Google Account's
-            <a
-              href="https://myaccount.google.com/permissions"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="text-primary underline underline-offset-2 hover:text-secondary"
-              >connected apps settings</a
-            >.
-          </li>
+          <li>You can revoke SMS permission at any time from Android's own app permission settings.</li>
           <li>
             Any transaction you enter manually is stored using the same on-device, encrypted
-            storage as SMS- and Gmail-sourced transactions.
+            storage as SMS-sourced transactions.
           </li>
         </ul>
       </RevealSection>
 
-      <RevealSection as="section" aria-labelledby="ai-processing">
-        <h2 id="ai-processing" class="scroll-mt-28 font-display text-xl font-bold text-ink">
-          AI processing &amp; approval
+      <RevealSection as="section" aria-labelledby="categorization">
+        <h2 id="categorization" class="scroll-mt-28 font-display text-xl font-bold text-ink">
+          Categorization &amp; approval
         </h2>
         <p class="mt-3 leading-relaxed">
-          Categorization and merchant-learning models run on-device. No transaction content is
-          sent to a remote AI service as part of this processing. Transactions that are
-          automatically categorized and approved by YM²'s AI
-          <strong class="text-ink">always remain visible and editable</strong> in your Approval
-          Queue — automation never locks you out of correcting a transaction.
+          Categorization runs entirely on-device, using a rule-based engine and a local keyword
+          matcher — no transaction content is ever sent to a remote server as part of this
+          processing. Transactions that are automatically categorized
+          <strong class="text-ink">always remain visible and editable</strong> in Activity →
+          Pending — automation never locks you out of correcting a transaction. Corrections you
+          confirm can become a rule YM² applies next time; nothing is learned without your explicit
+          confirmation.
         </p>
         <p class="mt-3 leading-relaxed">
           <strong class="text-ink">What happens if I don't approve a transaction?</strong> You
           can turn on auto-approve in Settings so detected transactions are approved by themselves
           after a time period you choose. If you leave auto-approve off, nothing is applied to
-          your budgets or reports automatically — every detected transaction simply sits in your
-          Pending Transactions list until you review and approve it yourself.
+          your budgets or reports automatically — every detected transaction simply sits in
+          Activity → Pending until you review and approve it yourself.
         </p>
       </RevealSection>
 
@@ -226,9 +197,9 @@ function scrollToSection(event: MouseEvent) {
           How data is used
         </h2>
         <p class="mt-3 leading-relaxed">
-          Data extracted from SMS, Gmail, or manual entry is used exclusively to power the
-          features you see in the app: transaction lists, budgets, reports, and analytics. It is
-          never used to build an advertising profile, because YM² shows no advertisements.
+          Data extracted from SMS or manual entry is used exclusively to power the features you
+          see in the app: transaction lists, budgets, goals, reserves, bill tracking, and reports.
+          It is never used to build an advertising profile, because YM² shows no advertisements.
         </p>
       </RevealSection>
 
@@ -248,9 +219,9 @@ function scrollToSection(event: MouseEvent) {
           Internet usage
         </h2>
         <p class="mt-3 leading-relaxed">
-          YM² uses the internet only for optional features you explicitly enable — such as Gmail
-          import or future cloud backup/sync. Core tracking and budgeting features require no
-          network access at all.
+          YM² makes no network calls anywhere in its live feature set. SMS parsing, categorization,
+          and every calculation the app shows you run entirely on-device, with or without an
+          internet connection.
         </p>
       </RevealSection>
 
@@ -270,8 +241,9 @@ function scrollToSection(event: MouseEvent) {
           Security
         </h2>
         <p class="mt-3 leading-relaxed">
-          Local data is encrypted at rest. Any optional network calls (e.g. Gmail API, future
-          sync) use industry-standard TLS encryption in transit.
+          Your live database is encrypted at rest under a random key held in the Android Keystore,
+          separate from your backup encryption. Encrypted backups use AES-256-GCM under a
+          passphrase only you know, derived with PBKDF2 (210,000 rounds).
         </p>
       </RevealSection>
 
@@ -307,8 +279,8 @@ function scrollToSection(event: MouseEvent) {
         </h2>
         <p class="mt-3 leading-relaxed">
           YM² requests only the Android permissions required for the features you use: SMS
-          (transaction detection), storage (backups), and network (optional Gmail import / sync).
-          Every permission can be revoked from Android Settings at any time; core app
+          (transaction detection), notifications (budget and reminder alerts), and storage
+          (backups). Every permission can be revoked from Android Settings at any time; core app
           functionality degrades gracefully rather than breaking.
         </p>
       </RevealSection>
@@ -330,22 +302,6 @@ function scrollToSection(event: MouseEvent) {
         <p class="mt-3 leading-relaxed">
           We may update this Privacy Policy from time to time. Material changes will be reflected
           by updating the "Last updated" date above.
-        </p>
-      </RevealSection>
-
-      <RevealSection as="section" aria-labelledby="google-api">
-        <h2 id="google-api" class="scroll-mt-28 font-display text-xl font-bold text-ink">
-          Google API Limited Use Statement
-        </h2>
-        <p class="mt-3 leading-relaxed">
-          YM²'s use and transfer of information received from Google APIs adheres to the
-          <a
-            href="https://developers.google.com/terms/api-services-user-data-policy#additional_requirements_for_specific_api_scopes"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="text-primary underline underline-offset-2 hover:text-secondary"
-            >Google API Services User Data Policy</a
-          >, including the Limited Use requirements.
         </p>
       </RevealSection>
 

@@ -46,7 +46,7 @@ const lastUpdated = '10 August 2026'
           </h2>
           <ul class="mt-3 list-disc space-y-2 pl-5 leading-relaxed">
             <li>You are responsible for the accuracy of any manually entered transaction data.</li>
-            <li>You are responsible for reviewing auto-categorized transactions in your Approval Queue.</li>
+            <li>You are responsible for reviewing auto-detected transactions in Activity → Pending before they're treated as final.</li>
             <li>You are responsible for safeguarding any backup files you export.</li>
             <li>You must be legally permitted to use the device and accounts you connect to YM².</li>
           </ul>

@@ -36,8 +36,8 @@ const linkGroups = [
         <div class="col-span-2">
           <Logo variant="dark" :showWordmark="false" showTagline />
           <p class="mt-4 max-w-xs text-sm leading-relaxed text-muted">
-            Private, offline-first, AI-assisted personal finance for Android.
-            Your data stays on your device.
+            Private, offline-first personal finance for Android that reads your bank SMS
+            automatically. Your data stays on your device.
           </p>
         </div>
 

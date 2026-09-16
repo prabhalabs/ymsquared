@@ -11,7 +11,7 @@ import { SUPPORT_EMAIL } from '@/constants/brand'
 useSeoMeta({
   title: 'Support',
   description:
-    'Answers to common YM² questions: permissions, backup and restore, SMS detection, and Gmail sync — plus how to reach us directly.',
+    'Answers to common YM² questions: permissions, backup and restore, SMS detection, budgets, and Safe to Spend — plus how to reach us directly.',
   path: '/support',
 })
 
@@ -22,39 +22,44 @@ const faqs: FaqItem[] = [
       'YM² reads transaction SMS from your bank and card issuers to automatically detect and log transactions. This parsing happens entirely on your device — raw SMS content is never uploaded anywhere.',
   },
   {
-    question: 'What happens if I deny a permission?',
+    question: 'What happens if I deny SMS permission?',
     answer:
-      'YM² degrades gracefully. Without SMS permission you can still track everything manually. Without Gmail access, Gmail import simply stays off — every permission is optional except what a specific feature you choose to use requires.',
+      'YM² degrades gracefully. Without SMS permission you can still track everything manually — every transaction, budget, and report works the same way, you just add entries yourself with the "+" button.',
   },
   {
     question: 'Does YM² support manual transactions?',
     answer:
-      'Yes. A "+" button is available on both the Dashboard and the Transactions section to create a manual transaction at any time. This helps if a bank doesn\'t send a transaction SMS or email, or if you\'d rather not grant SMS or Gmail permission at all — YM² works fully on manual entry alone.',
+      'Yes. A "+" button is available from the Activity tab to add an expense, income, transfer, split, or refund at any time. This covers banks that don\'t send transaction SMS, or if you\'d rather not grant SMS permission at all — YM² works fully on manual entry alone.',
+  },
+  {
+    question: 'What is Safe to Spend?',
+    answer:
+      'It\'s the one number on your Home screen that nets your unallocated Money Pool against bills, goal contributions, and reserve targets due soon — so it reflects what\'s truly free to spend, not just your raw balance.',
   },
   {
     question: 'How do I back up my data?',
     answer:
-      'Open Settings → Backup & Restore → Create Backup. YM² generates an encrypted backup file that you save wherever you like (device storage, an SD card, or a cloud drive of your choice) — YM² itself never uploads it automatically.',
+      'Open Settings → Backup & Restore → Create Backup and set a passphrase. YM² generates an AES-256 encrypted backup file that you save wherever you like (device storage, an SD card, or a cloud drive of your choice) — YM² itself never uploads it automatically.',
   },
   {
     question: 'How do I restore from a backup?',
     answer:
-      'On a new device or after a reinstall, open Settings → Backup & Restore → Restore Backup, then select your saved backup file. Your transactions, budgets, and categories are restored exactly as they were.',
+      'On a new device or after a reinstall, open Settings → Backup & Restore → Restore Backup, select your saved backup file, and enter its passphrase. Your transactions, budgets, and categories are restored exactly as they were.',
   },
   {
     question: 'How does automatic SMS detection work?',
     answer:
-      'YM² watches for incoming SMS from recognized bank and card-issuer sender IDs, parses the amount, merchant, and account on-device, and creates a categorized transaction in your Approval Queue — which you can review and edit at any time.',
+      'YM² watches for incoming SMS from recognized bank and card-issuer sender IDs across 18 supported Indian banks, parses the amount, merchant, and account on-device, and creates a transaction candidate in your Approvals queue — which you can review and edit at any time.',
   },
   {
     question: "What happens if I don't approve a transaction?",
     answer:
-      'You can turn on auto-approve in Settings so detected transactions are approved by themselves after a time period you choose. If you leave auto-approve off, nothing is applied to your budgets or reports automatically — the transaction simply sits in your Pending Transactions list until you review and approve it yourself.',
+      'You can turn on auto-approve in Settings so detected transactions are approved by themselves after a time period you choose, once they meet your confidence threshold. If you leave auto-approve off, nothing is applied to your budgets or reports automatically — the transaction simply sits in Activity → Pending until you review and approve it yourself.',
   },
   {
-    question: 'How does Gmail sync work?',
+    question: 'Does YM² support banks outside India, or iOS?',
     answer:
-      'If enabled, YM² periodically checks for transaction-related emails (like payment receipts) and extracts transaction details from them, the same way it does with SMS. Gmail sync is entirely optional and can be disabled at any time in Settings.',
+      "Not yet. SMS parsing is currently tuned for 18 Indian banks, and YM² is Android-only. You can still track any account manually while we expand coverage.",
   },
 ]
 

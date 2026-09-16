@@ -6,18 +6,23 @@ import {
   WifiOff,
   PiggyBank,
   FileBarChart2,
-  BarChart3,
-  Mail,
-  RefreshCcw,
+  Wallet,
+  Gauge,
+  Target,
+  Vault,
+  CalendarClock,
+  CreditCard,
+  Scale,
+  GitCompare,
+  TrendingUp,
   Repeat,
-  Store,
+  Lightbulb,
+  RefreshCcw,
   ListChecks,
   Lock,
   Ban,
   EyeOff,
-  Brain,
   Landmark,
-  Cloud,
   DoorOpen,
 } from '@lucide/vue'
 import { PlayCircleIcon } from '@heroicons/vue/24/solid'
@@ -36,7 +41,7 @@ import { BRAND_TAGLINE } from '@/constants/brand'
 useSeoMeta({
   title: 'YM² — Your Money Matters',
   description:
-    'YM² (Your Money Matters) is a private, offline-first, AI-assisted personal finance manager for Android. Automatically organize your finances from SMS, Gmail, and manual entries — your data never leaves your device.',
+    'YM² (Your Money Matters) is a private, offline-first personal finance manager for Android. It reads your bank SMS to build your transaction history automatically and gives you a trustworthy Safe to Spend number — your data never leaves your device.',
   path: '/',
 })
 
@@ -52,63 +57,83 @@ function scrollToFeatures(event: MouseEvent) {
 const features: Feature[] = [
   {
     icon: ScanLine,
-    title: 'Automatic SMS Detection',
-    description: 'Bank and card transaction SMS are parsed the instant they arrive — no manual entry.',
-  },
-  {
-    icon: Sparkles,
-    title: 'AI Assisted Categorization',
-    description: 'On-device intelligence sorts every transaction into the right category automatically.',
-  },
-  {
-    icon: ShieldCheck,
-    title: 'Privacy First',
-    description: 'Your financial data is yours alone. Nothing is uploaded without your explicit action.',
-  },
-  {
-    icon: WifiOff,
-    title: 'Offline First',
-    description: 'Track and budget with zero internet connection — YM² works fully offline.',
-  },
-  {
-    icon: PiggyBank,
-    title: 'Budgets',
-    description: 'Set monthly budgets per category and get a clear read on where you stand.',
-  },
-  {
-    icon: FileBarChart2,
-    title: 'Reports',
-    description: 'Clean, exportable reports that summarize your spending and income over any period.',
-  },
-  {
-    icon: BarChart3,
-    title: 'Analytics',
-    description: 'Visual trends and breakdowns that make sense of months of transaction history.',
-  },
-  {
-    icon: Mail,
-    title: 'Gmail Import',
-    description: 'Optionally import transaction emails from Gmail to fill in gaps SMS can\'t catch.',
-  },
-  {
-    icon: RefreshCcw,
-    title: 'Backup & Restore',
-    description: 'Encrypted local backups you control, restorable any time you set up a new device.',
-  },
-  {
-    icon: Repeat,
-    title: 'Recurring Expenses',
-    description: 'Subscriptions and bills are detected and tracked so nothing sneaks past you.',
-  },
-  {
-    icon: Store,
-    title: 'Merchant Learning',
-    description: 'YM² remembers how you categorize each merchant and applies it next time.',
+    title: 'Automatic SMS Tracking',
+    description: 'Bank SMS from 18 major Indian banks is parsed the instant it arrives, building your transaction history for you.',
   },
   {
     icon: ListChecks,
-    title: 'Approval Queue',
-    description: 'Review auto-categorized transactions in one place — every entry stays fully editable.',
+    title: 'Approval-First Automation',
+    description: 'Every detected transaction is a suggestion first. Approve, edit, or reject it — or let a timed sweep auto-approve the routine ones.',
+  },
+  {
+    icon: Gauge,
+    title: 'Safe to Spend',
+    description: 'One trustworthy number that nets your unallocated cash against upcoming bills, goals, and reserves due soon.',
+  },
+  {
+    icon: Wallet,
+    title: 'Money Pool',
+    description: 'See exactly what\'s free to use — separate from your raw bank balance, which includes cash already promised elsewhere.',
+  },
+  {
+    icon: PiggyBank,
+    title: 'Budgets with Rollover',
+    description: 'Set a monthly cap per category, fund it from your Money Pool, and choose whether leftovers roll forward or return to your pool.',
+  },
+  {
+    icon: Target,
+    title: 'Goals',
+    description: 'Set a savings target, with an optional deadline, and see exactly how much per month keeps you on pace.',
+  },
+  {
+    icon: Vault,
+    title: 'Reserves',
+    description: 'Set money aside for a known future expense with a real due date, spent directly when the time comes.',
+  },
+  {
+    icon: CalendarClock,
+    title: 'Payments & Obligations',
+    description: 'Track rent, EMIs, subscriptions, and bills — due, overdue, or paid — with recurring items renewing automatically.',
+  },
+  {
+    icon: CreditCard,
+    title: 'Credit Card Tracking',
+    description: 'See your outstanding balance, what you\'ve already set aside, minimum due, and an estimated interest cost.',
+  },
+  {
+    icon: Scale,
+    title: 'Reconciliation',
+    description: 'Compare YM²\'s numbers to your real bank balance, post a correction, or investigate a mismatch.',
+  },
+  {
+    icon: GitCompare,
+    title: 'What If / Scenarios',
+    description: 'Test a hypothetical spend or contribution and see the before/after impact — without touching your real numbers.',
+  },
+  {
+    icon: TrendingUp,
+    title: 'Net Worth',
+    description: 'Your live account balances plus anything you track manually, like property or a personal loan, in one number.',
+  },
+  {
+    icon: Lightbulb,
+    title: 'Learning Categorization',
+    description: 'Correct a transaction once, confirm it, and YM² remembers — nothing is learned without your say-so.',
+  },
+  {
+    icon: Repeat,
+    title: 'Recurring Expense Detection',
+    description: 'YM² notices when a merchant charges you on a consistent schedule and flags it, transparently.',
+  },
+  {
+    icon: FileBarChart2,
+    title: 'Reports & Export',
+    description: '7-day, monthly, and yearly summaries with category and merchant breakdowns — exportable to CSV, Excel, or PDF.',
+  },
+  {
+    icon: RefreshCcw,
+    title: 'Encrypted Backup & Restore',
+    description: 'Password-protected, AES-256 encrypted backups you control, restorable any time you set up a new device.',
   },
 ]
 
@@ -116,12 +141,12 @@ const whyReasons: WhyReason[] = [
   {
     icon: WifiOff,
     title: 'Offline First',
-    description: 'Core features work without a single network request.',
+    description: 'No backend, no network calls in the live pipeline — every feature works with zero connectivity.',
   },
   {
     icon: Lock,
     title: 'Privacy First',
-    description: 'Your SMS and transaction data are processed entirely on your device.',
+    description: 'Your SMS and transaction data are parsed and stored entirely on your device, encrypted at rest.',
   },
   {
     icon: Ban,
@@ -134,19 +159,19 @@ const whyReasons: WhyReason[] = [
     description: 'No analytics SDKs, no behavioral tracking, no third-party trackers.',
   },
   {
-    icon: Brain,
-    title: 'AI Learning',
-    description: 'Categorization improves the more you use YM² — learning from your corrections.',
+    icon: Sparkles,
+    title: 'Learns From You',
+    description: 'Categorization improves the more you use YM² — a rule-based engine that learns from your corrections, never silently.',
   },
   {
     icon: Landmark,
     title: 'Indian Banking Support',
-    description: 'Built and tuned around the SMS formats of Indian banks and card issuers.',
+    description: 'Built and tuned around the SMS formats of 18 Indian banks and card issuers.',
   },
   {
-    icon: Cloud,
-    title: 'Future Cloud Sync',
-    description: 'Optional, end-to-end encrypted sync across devices is on the roadmap — opt-in only.',
+    icon: ShieldCheck,
+    title: 'Genuine Double-Entry Ledger',
+    description: 'Every balance you see — account, budget, goal, net worth — is replayed from an append-only ledger, never a stored figure that can drift.',
   },
   {
     icon: DoorOpen,
@@ -163,7 +188,7 @@ const whyReasons: WhyReason[] = [
       <div class="relative mx-auto grid max-w-7xl items-center gap-16 lg:grid-cols-2">
         <RevealSection>
           <p class="font-display text-sm font-semibold uppercase tracking-widest text-secondary">
-            Private &middot; Offline-First &middot; AI-Assisted
+            Private &middot; Offline-First &middot; Automatic
           </p>
           <h1 class="mt-4 font-display text-7xl font-extrabold leading-none tracking-tight text-ink sm:text-8xl">
             YM²
@@ -175,8 +200,10 @@ const whyReasons: WhyReason[] = [
             Track. Understand. Grow.
           </p>
           <p class="mt-6 max-w-lg text-lg leading-relaxed text-muted">
-            Your private AI-powered money manager. Automatically organize your finances from SMS,
-            Gmail and manual entries while keeping your data on your device.
+            Your bank already tells you everything, so YM² just listens. It reads your bank's SMS
+            to build a transaction history automatically, then gives you one trustworthy number
+            for what's actually safe to spend — all without an account, and without your data
+            ever leaving your device.
           </p>
           <div class="mt-8 flex flex-wrap items-center gap-4">
             <AppButton as="a" :href="PLAY_STORE_URL" target="_blank" size="lg">
