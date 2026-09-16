@@ -67,7 +67,7 @@ const linkGroups = [
       </div>
 
       <div class="mt-12 border-t border-border pt-8 text-sm text-muted-dim">
-        <p>&copy; {{ year }} YM Squared. All rights reserved.</p>
+        <p>&copy; {{ year }} YM Squared<sup>&trade;</sup>. All rights reserved.</p>
       </div>
     </div>
   </footer>
