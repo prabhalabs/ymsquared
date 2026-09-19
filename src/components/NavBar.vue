@@ -29,7 +29,10 @@ watch(
 <template>
   <header class="fixed inset-x-0 top-0 z-50">
     <div class="mx-auto max-w-7xl px-4 pt-4 sm:px-6 lg:px-8">
-      <nav class="glass flex items-center justify-between rounded-2xl px-4 py-3 sm:px-6" aria-label="Primary">
+      <nav
+        class="flex items-center justify-between rounded-2xl border border-border bg-card px-4 py-3 shadow-sm sm:px-6"
+        aria-label="Primary"
+      >
         <router-link to="/" class="shrink-0" aria-label="YM² home — Your Money Matters">
           <Logo variant="dark" :showWordmark="false" showTagline />
         </router-link>
@@ -74,7 +77,10 @@ watch(
         leave-from-class="opacity-100 translate-y-0"
         leave-to-class="opacity-0 -translate-y-2"
       >
-        <div v-if="isMenuOpen" class="glass mt-2 flex flex-col gap-1 rounded-2xl p-3 md:hidden">
+        <div
+          v-if="isMenuOpen"
+          class="mt-2 flex flex-col gap-1 rounded-2xl border border-border bg-card p-3 shadow-sm md:hidden"
+        >
           <router-link
             v-for="link in navLinks"
             :key="link.label"
