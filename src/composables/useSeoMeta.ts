@@ -35,6 +35,11 @@ function upsertLink(rel: string, href: string) {
  * page in <script setup>; no reactivity needed since routes fully remount.
  */
 export function useSeoMeta({ title, description, path = '/' }: SeoMetaOptions): void {
+  // No-op during SSR prerendering (src/entry-server.ts) — there is no
+  // `document` in that context, and the prerendered pages set their own
+  // <head> tags directly in scripts/generate-static-pages.mjs.
+  if (typeof document === 'undefined') return
+
   const fullTitle = path === '/' ? title : `${title} — ${SITE_NAME} · ${BRAND_TAGLINE}`
   const canonical = `${SITE_URL}${path === '/' ? '/' : path}`
 
